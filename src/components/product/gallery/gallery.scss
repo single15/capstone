@@ -1,0 +1,93 @@
+.gallery-section {
+    display: flex;
+    justify-content: center;
+    user-select: none;
+
+    .image-options {
+        margin-right: var(--unnamed-pixel-16);
+
+        .option-img-block {
+            position: relative;
+
+            .option {
+                padding: var(--unnamed-pixel-4);
+                margin-bottom: var(--unnamed-pixel-16);
+                cursor: pointer;
+    
+                &:hover {
+                    filter: drop-shadow(0 0 var(--unnamed-pixel-4) var(--gray-d1));
+                }
+    
+                &.selected {
+                    border-bottom: var(--unnamed-pixel-4) solid var(--primary-m1);
+                }
+            }
+
+            .option-overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                
+                &:not(.selected) {
+                    background-color: var(--black);
+                    opacity: 0.3;
+                }
+            }
+        }
+    }
+
+    .main-image {
+        max-width: 500px;
+    }
+
+    .image-block {
+        display: none;
+
+        &.selected {
+            display: block;
+        }
+    }
+}
+
+.gallery-slider-section {
+    position: relative;
+
+    .action-wrapper {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+    }
+
+    .prev {
+        left: 0;
+    }
+
+    .next {
+        right: 0;
+    }
+
+    .dot-section {
+        width: 100%;
+        height: var(--unnamed-pixel-28);
+        position: absolute;
+        bottom: var(--unnamed-pixel-8);
+        display: flex;
+        justify-content: center;
+
+        span {
+            width: var(--unnamed-pixel-4);
+            height: var(--unnamed-pixel-4);
+            margin-right: var(--unnamed-pixel-8);
+            border-radius: 50%;
+            background: var(--white);
+            border: var(--unnamed-border-solid);
+
+            &.selected {
+                background: var(--gray-d1);
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+@import 'style/mixins';
+
+.product-details-page {
+    .filter-color-block {
+        border-bottom: none !important;
+    }
+
+    .product-header-section {
+        margin-top: var(--unnamed-pixel-16);
+    }
+
+    .button-section {
+        margin-top: var(--unnamed-pixel-32);
+
+        .aem-GridColumn {
+            &:nth-child(2){
+                margin-top: var(--unnamed-pixel-16);
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+
+    @include desktop {
+        .product-info-section {
+            center {
+                text-align: left !important;
+            }
+        }        
+    }
+}

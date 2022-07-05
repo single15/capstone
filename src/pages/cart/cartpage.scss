@@ -1,0 +1,21 @@
+@import 'style/mixins';
+
+.cart-page-section {
+    .display-l-36- {
+        margin-bottom: var(--unnamed-pixel-16);
+    }
+
+    .empty-cart {
+        border: var(--unnamed-border-solid);
+        padding: 0 0 var(--unnamed-pixel-24) var(--unnamed-pixel-24);
+        margin-top: var(--unnamed-pixel-24);
+    }
+
+    .recently-viewed-section {
+        display: none;
+
+        @include desktop {
+            display: block;
+        }
+    }
+}

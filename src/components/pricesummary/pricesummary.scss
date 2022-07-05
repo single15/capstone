@@ -1,0 +1,52 @@
+@import 'style/mixins';
+
+@mixin desktop-tablet-view {
+    border: var(--unnamed-border-solid);
+    padding: var(--unnamed-pixel-20);
+    margin-left: var(--unnamed-pixel-20);
+    box-shadow: 0px 0px var(--unnamed-pixel-8) var(--black);
+}
+
+
+.price-summary-section {
+    margin: var(--unnamed-pixel-16) 0;
+
+    .section-header {
+        font-weight: var(--unnamed-font-weight-bold);
+        margin-bottom: var(--unnamed-pixel-16);
+    }
+    
+    .aem-GridColumn {
+        .aem-Grid {
+            padding-bottom: var(--unnamed-pixel-16);
+
+            .aem-GridColumn--default--4 {
+                text-align: right;
+            }
+        }
+    }
+
+    .button-section {
+        text-align: center;
+
+        .btn {
+            width: 200px;
+
+            &:nth-child(1) {
+                margin: var(--unnamed-pixel-20) auto;
+            }
+        }
+
+        img {
+            width: 200px;            
+        }
+    }
+
+    @include desktop {
+        @include desktop-tablet-view;
+    }
+
+    @include tablet {
+        @include desktop-tablet-view;
+    }
+}

@@ -1,0 +1,18 @@
+.filter-size-block {
+    margin-top: var(--unnamed-pixel-16);
+    .size-block {
+        margin-right: var(--unnamed-pixel-8);
+        padding: var(--unnamed-pixel-8);
+        text-align: center;
+        border: var(--unnamed-border-solid);
+        border-width: var(--unnamed-pixel-2);
+        border-radius: var(--unnamed-pixel-8);
+        margin-top: var(--unnamed-pixel-16);
+
+        &.selected {
+            color: var(--white);
+            background-color: var(--primary-l1);
+            border-color: var(--primary-l1);
+        }
+    }
+}

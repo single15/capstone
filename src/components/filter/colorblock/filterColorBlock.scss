@@ -1,0 +1,38 @@
+
+.filter-color-block {
+    padding: var(--unnamed-pixel-16) 0;
+    border-bottom: var(--unnamed-border-solid);
+
+    .options-section {
+        padding-top: var(--unnamed-pixel-12);
+
+        .color-option-wrapper {
+            position: relative;
+
+            .color-option {
+                cursor: pointer;
+                height: var(--unnamed-pixel-40);                
+                margin-right: var(--unnamed-pixel-12);
+                margin-bottom: var(--unnamed-pixel-12);
+                border-radius: var(--unnamed-pixel-4);
+                border: var(--unnamed-border-solid);
+            }
+
+            .check-icon {
+                position: absolute;
+                display: none;
+                top: calc(50% - 12px);
+                left: calc(50% - 12px);
+                transform: translate(-30%, -20%);
+
+                svg {
+                    fill: var(--white);
+                }
+
+                &.selected {
+                    display: block;
+                }
+            }
+        }
+    }
+}

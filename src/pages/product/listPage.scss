@@ -1,0 +1,11 @@
+.list-page {
+
+    .sort-section {
+        padding-bottom: var(--unnamed-pixel-24);
+
+        .sorting-filter {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}

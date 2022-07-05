@@ -1,0 +1,31 @@
+@import 'style/mixins';
+
+.pagination-section {
+    margin: var(--unnamed-pixel-24) auto;
+
+    .selected-page {
+        text-decoration: underline;
+    }
+
+
+    .action-button {
+        text-align: center;
+        width: 52px !important;
+        height: var(--unnamed-pixel-20);
+        cursor: pointer;
+    }
+
+    .page-num-section {
+        display: flex;
+        justify-content: center;
+
+        .page-num-block {
+            padding: 0 var(--unnamed-pixel-10);
+            cursor: pointer;
+        }
+    }
+
+    @include desktop {
+        width: 60%;
+    }
+}

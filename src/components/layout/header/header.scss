@@ -1,0 +1,107 @@
+.header-section {
+    top: 0;
+    position: sticky;
+    z-index: 999;
+    background-color: var(--white);
+    font-size: var(--unnamed-font-size-16);
+    border-bottom: var(--unnamed-border-solid);
+
+    .aem-Grid {
+        display: flex;
+        align-items: center;
+
+        &.mobile {
+            .aem-GridColumn {
+                &:nth-child(1) {
+                    text-align: left;
+                }
+    
+                &:nth-child(2) {
+                    text-align: center;
+                }
+    
+                &:nth-child(3) {
+                    text-align: right;
+    
+                    svg:nth-child(1) {
+                        padding-right: var(--unnamed-pixel-24);
+                    }
+                }
+            }
+
+            .menus {
+                position: absolute;
+                top: 68px;
+                right: 0;
+                background: var(--gray-l1);
+                z-index: 9999;
+
+                ul {
+                    display: block;                    
+                    
+                    li {
+                        display: block;
+                        padding: 16px 0;
+
+                        a {
+                            text-decoration: none;
+                            color: var(--black);
+                        }
+                    }
+                }
+
+                .close {
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+                }
+            }
+        }
+
+        &.desktop {
+            .aem-GridColumn {
+                &:nth-child(1) {
+                    text-align: left;
+                }
+    
+                &:nth-child(2) {
+                    text-align: center;
+
+                    ul {
+                        display: flex;
+                        justify-content: center;
+                        li {
+                            display: block;
+                            padding-right: var(--unnamed-pixel-16);
+
+                            a {
+                                text-decoration: none;
+                                color: black;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+    
+                &:nth-child(3) {
+                    display: flex;
+                    justify-content: flex-end;
+
+                    div {
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        
+                        &:not(:last-child) {
+                            padding-right: var(--unnamed-pixel-24);
+                        }
+
+                        svg {
+                            padding-right: var(--unnamed-pixel-4);
+                        }
+                    }
+                }
+            }
+        }
+    }   
+}

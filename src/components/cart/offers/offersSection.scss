@@ -1,0 +1,27 @@
+.offers-section {
+    margin-top: var(--unnamed-pixel-16);
+
+    .offer-item {
+        padding: var(--unnamed-pixel-12);
+        border: var(--unnamed-border-solid);
+        border-bottom: none;
+
+        &:last-child {
+            border-bottom: var(--unnamed-border-solid);
+        }
+
+        .aem-Grid {
+            .aem-GridColumn {
+                &:nth-child(2) {
+                    text-align: right;
+                }
+            }
+        }
+
+        .desc {
+            margin-top: var(--unnamed-pixel-4);
+            font-size: var(--unnamed-font-size-12);
+            color: var(--gray-d1);
+        }
+    }
+}

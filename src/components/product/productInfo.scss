@@ -1,0 +1,56 @@
+@import 'style/mixins';
+
+
+@mixin desktop-tablet {
+    .product-info-section {
+        margin-top: var(--unnamed-pixel-16);
+
+        .product-info-description {
+            margin-right: var(--unnamed-pixel-24);
+        }
+    }
+}
+
+.product-info-section {
+    margin-top: var(--unnamed-pixel-16);
+
+    .block-header {
+        margin-bottom: var(--unnamed-pixel-12);
+        margin-top: var(--unnamed-pixel-12);
+    }
+
+    .product-info-details {
+        .aem-GridColumn {
+
+            &:nth-child(1),
+            &:nth-child(2) {
+                margin-bottom: var(--unnamed-pixel-16);
+            }
+        }
+
+        center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+
+    .horizontal-bar {
+        margin-top: var(--unnamed-pixel-24);
+    }
+}
+
+@include desktop {
+    @include desktop-tablet;
+
+    .product-info-details {
+        center {
+            justify-content: left !important;
+        }
+    }
+}
+
+@include tablet {
+    @include desktop-tablet;
+}
