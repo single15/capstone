@@ -1,5 +1,5 @@
 # Visit Venia App
-This website is hosted at [Venia Demo App](https://single15.github.io/venia/).
+This website is hosted at [Venia Demo App](https://single15.github.io/capstone/).
 
 ## About Venia App
 
