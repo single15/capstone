@@ -1,20 +1,20 @@
 export const SIZE_FILTER = [
-    { id: 'size-1', smValue: 'XS', value: 'X-Small'},
-    { id: 'size-2', smValue: 'S', value: 'Small'},
-    { id: 'size-3', smValue: 'M', value: 'Medium'},
-    { id: 'size-4', smValue: 'L', value: 'Large'},
-    { id: 'size-5', smValue: 'XL', value: 'X-Large'}
+    { id: 'size-1', smValue: 'XS', value: 'X-Small' },
+    { id: 'size-2', smValue: 'S', value: 'Small' },
+    { id: 'size-3', smValue: 'M', value: 'Medium' },
+    { id: 'size-4', smValue: 'L', value: 'Large' },
+    { id: 'size-5', smValue: 'XL', value: 'X-Large' }
 ]
 
 export const STYLE_FILTER = [
-    { id: 'style-1', value: 'Outdoor'},
-    { id: 'style-2', value: 'Casual'},
-    { id: 'style-3', value: 'Athleisure'},
-    { id: 'style-4', value: 'Running'},
-    { id: 'style-5', value: 'Active'},
+    { id: 'style-1', value: 'Outdoor' },
+    { id: 'style-2', value: 'Casual' },
+    { id: 'style-3', value: 'Athleisure' },
+    { id: 'style-4', value: 'Running' },
+    { id: 'style-5', value: 'Active' },
 ]
 
-export const BRAND_FILTER = [ 
+export const BRAND_FILTER = [
     { id: 'brand-1', value: 'Calvin Klein' },
     { id: 'brand-2', value: 'Dolce & Gabbana' },
     { id: 'brand-3', value: 'Miu Miu' },
@@ -25,4 +25,11 @@ export const BRAND_FILTER = [
     { id: 'brand-8', value: 'Salvatore Ferragamo' },
     { id: 'brand-9', value: 'Marni' },
     { id: 'brand-10', value: 'Dior' },
+]
+
+export const CATEGORIES_FILTER = [
+    { id: 'jewellery', value: 'Jewellery' },
+    { id: 'electronics', value: 'Electronics' },
+    { id: 'men', value: 'Men\'s Clothing' },
+    { id: 'women', value: 'Women\'s Clothing' }
 ]

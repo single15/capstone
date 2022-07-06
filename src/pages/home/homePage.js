@@ -52,6 +52,7 @@ export default function HomePage() {
                     <span>next adventure</span>
                 </h1>
                 <p>Lorem Ipsum Dolor Tempor</p>
+                <Button type="secondary">SHOP DEVICE</Button>
                 <div className='marker-section'>
                     <MapPinIcon />
                     <HorizontalBar />
