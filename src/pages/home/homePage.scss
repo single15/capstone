@@ -29,7 +29,7 @@
                 display: flex;
             }
         }
-    }
+    }   
 }
 
 .home-page {
@@ -81,9 +81,33 @@
 
     @include desktop {
         @include desktop-tablet-view();
+
+        .marker-section {
+            left: -48px !important;
+            top: initial !important;
+        }
     }
 
     @include tablet {
         @include desktop-tablet-view();
+    }
+
+    .home-banner-section,
+    .home-banner-section-mb {
+        .home-banner-content {
+            position: relative;
+            padding-top: 32px;
+
+            .marker-section {
+                position: absolute;
+                left: 16px;
+                top: -20px;
+                text-align: center;
+
+                .horizontal-bar {
+                    margin-top: 8px;
+                }
+            }
+        }
     }
 }

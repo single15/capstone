@@ -2,9 +2,10 @@ import React from 'react';
 import Banner from 'components/banner/banner';
 import { CATEGORIES } from './categories';
 import CategoryItem from 'components/category/categoryItem/categoryItem';
-import 'pages/home/homePage.scss';
 import Button from 'components/button/button';
 import HorizontalBar from 'components/horizontalbar/horizontalbar';
+import { ReactComponent as MapPinIcon } from 'assets/map-pin.svg';
+import 'pages/home/homePage.scss';
 
 export default function HomePage() {
     return (
@@ -51,6 +52,10 @@ export default function HomePage() {
                     <span>next adventure</span>
                 </h1>
                 <p>Lorem Ipsum Dolor Tempor</p>
+                <div className='marker-section'>
+                    <MapPinIcon />
+                    <HorizontalBar />
+                </div>
             </Banner>
 
         </article>
