@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ReactComponent as ChevronLeftIcon } from 'assets/chevron-left.svg'
 import { ReactComponent as ChevronRightIcon } from 'assets/chevron-right.svg'
 import { setCurrentPage } from "reducer/product";
@@ -26,6 +26,7 @@ const Pagination = ({ products }) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { category } = useParams();
 
     const prev = () => {
         if (currentPage > 1) {
@@ -64,8 +65,8 @@ const Pagination = ({ products }) => {
     }
 
     useEffect(() => {
-        navigate(`/venia?pageNumber=${currentPage}`, { replace: true });
-    }, [currentPage, navigate]);
+        navigate(`/product/list/${category}?pageNumber=${currentPage}`, { replace: true });
+    }, [currentPage, navigate, category]);
 
     useEffect(() => {
         toggleNext(length > 9);

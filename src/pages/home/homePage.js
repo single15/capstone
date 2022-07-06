@@ -1,28 +1,58 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import Banner from 'components/banner/banner';
+import { CATEGORIES } from './categories';
+import CategoryItem from 'components/category/categoryItem/categoryItem';
+import 'pages/home/homePage.scss';
+import Button from 'components/button/button';
+import HorizontalBar from 'components/horizontalbar/horizontalbar';
 
 export default function HomePage() {
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        setTimeout(() => {
-            navigate('/venia')
-        }, 8000)
-    })
-
     return (
         <article className='home-page'>
-            <Banner />
-            <center>
-                <h2>
-                    HOME PAGE
-                </h2>
-                <p>
-                    You will be navigating to Women's Outerwear page...
-                </p>
-            </center>
-            
+            <div style={{ height: 100 }}></div>
+            <div className='categories'>
+                <div className='aem-Grid aem-Grid--12'>
+                    {CATEGORIES.map((category) =>
+                        <CategoryItem key={category.id} item={category} />
+                    )}
+                </div>
+            </div>
+
+            <section className='home-page-feature-banner'>
+                <div className='aem-Grid aem-Grid--12'>
+                    <div className='aem-GridColumn aem-GridColumn--default--5 aem-GridColumn--phone--12 aem-GridColumn--tablet--5 banner-image-section'>
+                    </div>
+                    <div className='aem-GridColumn aem-GridColumn--default--7 aem-GridColumn--phone--12 aem-GridColumn--tablet--7 banner-content-section'>
+                        <div>
+                            <div className='regular-heading-xl-24-'>
+                                <b>
+                                    <div>Take off in the new</div>
+                                    <div>Signature Legging</div>
+                                </b>
+                            </div>
+                            <span>Lorem Ipsum Dolor Tempor</span>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                labore dolore magna lorem ipsum dolor sit dolore magna.
+                            </p>
+                            <div className='button-section'>
+                                <Button type="secondary">SHOP COLLECTION</Button>&nbsp;&nbsp;
+                                <Button type="primary">SHOP NOW</Button>
+                            </div>
+                            <HorizontalBar />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <Banner posterPosition='left'>
+                <h1>
+                    <span>Conquer your</span><br />
+                    <span>next adventure</span>
+                </h1>
+                <p>Lorem Ipsum Dolor Tempor</p>
+            </Banner>
+
         </article>
     )
 }

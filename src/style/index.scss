@@ -8,10 +8,12 @@ body {
     font-family: var(--unnamed-font-family-muli);
     margin: 0;
 
-    @include desktop {
-        width: 80%;
-        margin: var(--unnamed-pixel-16) auto;
-    }
+    .container {
+        @include desktop {
+            width: 80%;
+            margin: var(--unnamed-pixel-16) auto;
+        }
+    }    
 
     .component-container {
         padding: var(--unnamed-pixel-16);

@@ -5,7 +5,7 @@
     text-align: center;
     border-style: solid;
     border-radius: var(--unnamed-pixel-28);
-    border-width: var(--unnamed-pixel-4);
+    border-width: var(--unnamed-pixel-2);
     cursor: pointer;
 
     display: flex;
@@ -35,8 +35,8 @@
 
     &.btn-secondary {
         background-color: var(--white);
-        color: var(--primary-brand);
-        border-color: var(--primary-brand);
+        color: var(--primary-m1);
+        border-color: var(--primary-m1);
 
         &:hover, 
         &:active {

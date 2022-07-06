@@ -1,0 +1,89 @@
+@import 'style/mixins';
+
+@mixin desktop-tablet-view {
+    .home-page-feature-banner {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 44px;
+
+        .banner-image-section {
+            float: right !important;
+        }
+
+        .banner-content-section {
+            padding: 0 44px;
+            height: 350px;
+            text-align: left;
+
+            span {
+                display: block;
+                margin: var(--unnamed-pixel-16) 0;
+                font-size: var(--unnamed-font-size-14);
+            }
+            
+            p {
+                font-size: var(--unnamed-font-size-12);
+            }
+
+            .button-section {
+                display: flex;
+            }
+        }
+    }
+}
+
+.home-page {
+    .categories {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: -66px;
+        width: 84%;
+        margin: 0 auto;
+        z-index: 997;
+    }
+
+
+    .home-page-feature-banner {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 36px;
+
+        .banner-content-section {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 44px 0;
+            position: relative;
+
+            p {
+                font-size: 12px;
+            }
+
+            .button-section {
+                display: flex;
+            }
+
+            .horizontal-bar {
+                position: absolute;
+                bottom: 0;
+            }
+        }
+
+        .banner-image-section {
+            background-image: url('../../assets/images/banner-image.jpg');
+            height: 350px;
+            background-position: top;
+            background-size: cover;
+            margin: 0;
+        }
+    }
+
+    @include desktop {
+        @include desktop-tablet-view();
+    }
+
+    @include tablet {
+        @include desktop-tablet-view();
+    }
+}

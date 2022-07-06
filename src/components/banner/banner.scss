@@ -34,14 +34,34 @@
         grid-template-columns: repeat(3, 1fr);
         margin: var(--unnamed-pixel-32) 0;
 
+        &.left  {
+            .home-banner-content {
+                grid-column: 3 / span 2;
+                width: auto;
+            }
+    
+            .home-banner-image {
+                grid-column: 1 / span 2;
+            }
+        }
+
+        &.right  {
+            .home-banner-content {
+                grid-column: 1 / span 2;
+                width: 100%;
+            }
+    
+            .home-banner-image {
+                grid-column: 3 / span 4;
+            }
+        }
+
         .home-banner-content {
             align-self: stretch;
             min-height: 140px;
             z-index: 1;
-            grid-column: 1 / span 2;
             padding: 5rem;
             text-align: center;
-            width: 100%;
             background-color: var(--unnamed-color-1B252C);
             color: var(--white);
             display: flex;
@@ -59,7 +79,6 @@
             display: flex;
             background-position: center center;
             background-size: cover;
-            grid-column: 3 / span 4;
             min-height: 268px;
             width: 100%;
             background-image: url("https://jnz3dtiuj77ca.dummycachetest.com/media/catalog/category/woman-wearing-orange-dress-3503488_sm.jpg?auto=webp&format=pjpg&quality=85");

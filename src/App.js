@@ -7,11 +7,11 @@ import 'style/index.scss';
 function App(props) {
   return (
     <main>
+      <Header />
       <div className="container">
-          <Header />
-          {props.children}
-          <Footer />
+        {props.children}
       </div>
+      <Footer />
     </main>
   );
 }

@@ -1,8 +1,8 @@
 {
-  "name": "venia",
+  "name": "capstone",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://single15.github.io/venia/",
+  "homepage": "https://single15.github.io/capstone/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
     "cra-template": "1.1.3",
