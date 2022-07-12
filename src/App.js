@@ -8,9 +8,7 @@ function App(props) {
   return (
     <main>
       <Header />
-      <div className="container">
-        {props.children}
-      </div>
+        {props.children}      
       <Footer />
     </main>
   );

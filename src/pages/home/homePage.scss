@@ -4,14 +4,14 @@
     .home-page-feature-banner {
         width: 80%;
         margin: 0 auto;
-        margin-bottom: 44px;
+        margin-bottom: var(--unnamed-pixel-44);
 
         .banner-image-section {
             float: right !important;
         }
 
         .banner-content-section {
-            padding: 0 44px;
+            padding: 0 var(--unnamed-pixel-44);
             height: 350px;
             text-align: left;
 
@@ -20,7 +20,7 @@
                 margin: var(--unnamed-pixel-16) 0;
                 font-size: var(--unnamed-font-size-14);
             }
-            
+
             p {
                 font-size: var(--unnamed-font-size-12);
             }
@@ -29,7 +29,7 @@
                 display: flex;
             }
         }
-    }   
+    }
 }
 
 .home-page {
@@ -47,17 +47,17 @@
     .home-page-feature-banner {
         width: 80%;
         margin: 0 auto;
-        margin-bottom: 36px;
+        margin-bottom: var(--unnamed-pixel-36);
 
         .banner-content-section {
             display: flex;
             align-items: center;
             text-align: center;
-            padding: 44px 0;
+            padding: var(--unnamed-pixel-44) 0;
             position: relative;
 
             p {
-                font-size: 12px;
+                font-size: var(--unnamed-font-size-12);
             }
 
             .button-section {
@@ -96,11 +96,11 @@
     .home-banner-section-mb {
         .home-banner-content {
             position: relative;
-            padding-top: 32px;
+            padding: var(--unnamed-pixel-32) 0;
 
             .marker-section {
                 position: absolute;
-                left: 16px;
+                left: var(--unnamed-pixel-16);
                 top: -20px;
                 text-align: center;
 
@@ -108,6 +108,22 @@
                     margin-top: 8px;
                 }
             }
+
+            .btn-secondary {
+                background: transparent;
+                color: var(--white);
+                border-color: var(--white);
+                padding: var(--unnamed-pixel-12) 0;
+                border-radius: var(--unnamed-pixel-16);
+            }
+        }
+    }
+
+    .slider-wraaper {
+        min-height: 92vh;
+
+        .gallery-slider-section {
+            min-height: 80vh;
         }
     }
 }

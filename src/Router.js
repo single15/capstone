@@ -22,18 +22,24 @@ const Router = () => (
         <Route path="product">
           <Route path="list/:category" element={
               <React.Suspense fallback={<Loader />}>
-                <ProductListPage />
+                <div className="container">
+                  <ProductListPage />
+                </div>
               </React.Suspense>
             } />
           <Route path=":id" element={
             <React.Suspense fallback={<Loader />}>
-              <ProductDetailPage />
+              <div className="container">
+                <ProductDetailPage />
+              </div>
             </React.Suspense>
           } />
         </Route>
         <Route path="cart" element={
           <React.Suspense fallback={<Loader />}>
-            <CartPage />
+            <div className="container">
+              <CartPage />
+            </div>
           </React.Suspense>
         } />
       </Routes>
