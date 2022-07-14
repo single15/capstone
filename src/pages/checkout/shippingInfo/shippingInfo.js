@@ -13,10 +13,11 @@ import { updateShippingInfo } from 'reducer/checkout';
 const ReadonlySection = ({ data, toggleEditMode }) => (
     <div className='shipping-info-readonly'>
         <div className='header'>
-            <span>
-                <b>Shipping Information</b>
+            <b>Shipping Information</b>
+            <span onClick={toggleEditMode}>
+                <EditIcon />
+                <span className='edit-button'>Edit</span>
             </span>
-            <span onClick={toggleEditMode}><EditIcon /></span>            
         </div>
         <div className='aem-Grid aem-Grid--12 user-details-section'>
             <div className='aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--tablet--6 aem-GridColumn--phone--12 user-contact-section'>

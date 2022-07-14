@@ -47,7 +47,7 @@ const CheckoutPage = () => {
                     <HorizontalBar />
                 </center>
                 <div className='aem-Grid aem-Grid--12'>
-                    <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--12'>
+                    <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--tablet--10 aem-GridColumn--phone--12'>
                         <h3>Guest Checkout</h3>
                         <div className='checkout-tab'>
                             <ShippingInfo clickContinue={() => handleView(SHIPPING_METHOD)} clickEditMode={() => handleView(SHIPPING_INFO)} />
@@ -66,24 +66,39 @@ const CheckoutPage = () => {
                         ) : (
                             <ViewTab serialNumber={3} tabLabel="Payment Information" />
                         )}
-                        {activeView[SHIPPING_METHOD] && activeView[SHIPPING_INFO] && activeView[PAYMENT_INFO] &&
-                            <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--phone--12">
+                        {activeView[SHIPPING_METHOD] && activeView[SHIPPING_INFO] && activeView[PAYMENT_INFO] && cartItems.length > 0 &&
+                            <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--12 aem-GridColumn--phone--12">
                                 <OrderItems />
                             </div>
                         }
                     </div>
 
+                    {!activeView[SHIPPING_METHOD] && !activeView[PAYMENT_INFO] &&
+                        <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--10 aem-GridColumn--phone--12 sign-in-section-wrapper">
+                            <section className='sign-in-section'>
+                                <div className='aem-Grid aem-Grid--12'>
+                                    <div className='aem-GridColumn aem-GridColumn--default--7 aem-GridColumn--tablet--8 aem-GridColumn--phone--6'>
+                                        Sign in for Express Checkout
+                                    </div>
+                                    <div className='aem-GridColumn aem-GridColumn--default--5 aem-GridColumn--tablet--4 aem-GridColumn--phone--6'>
+                                        <Button type="secondary">SIGN IN</Button>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                    }
 
                     {cartItems.length > 0 &&
-                        <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--phone--12">
+                        <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--10 aem-GridColumn--phone--12">
                             <PriceSummary />
                         </div>
                     }
 
-                    <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--12 place-order-button-section'>
+                    <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--tablet--10 aem-GridColumn--phone--12 place-order-button-section'>
                         <center>
                             <Button type="primary" width={280} onClick={() => navigate('/ordersummary')}>PLACE ORDER</Button>
-                        </center>                        
+                        </center>
                         <div>
                             By Clicking confirm order you agree to our&nbsp;&nbsp;
                             <NavLink to={'/capstone'}>Terms and Conditions</NavLink>

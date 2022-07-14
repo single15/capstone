@@ -17,7 +17,10 @@ const ReadonlySection = ({ data, toggleEditMode }) => {
                 <span>
                     <b>Shipping Method</b>
                 </span>
-                <span onClick={toggleEditMode}><EditIcon /></span>            
+                <span onClick={toggleEditMode}>
+                    <EditIcon />
+                    <span className='edit-button'>Edit</span>
+                </span>
             </div>
             <div className='aem-Grid aem-Grid--12 user-details-section'>
                 <div className='aem-GridColumn aem-GridColumn--default--12 aem-GridColumn--tablet--6 aem-GridColumn--phone--12'>

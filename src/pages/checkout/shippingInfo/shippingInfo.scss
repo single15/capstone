@@ -6,6 +6,11 @@
         margin-bottom: var(--unnamed-pixel-12);
         display: flex;
         justify-content: space-between;
+
+        span:not(.edit-button) {
+            display: flex;
+            align-items: center;
+        }
     }
 
     .user-details-section {
@@ -14,5 +19,5 @@
         .user-contact-section {
             margin-bottom: var(--unnamed-pixel-16);
         }
-    }    
+    }
 }

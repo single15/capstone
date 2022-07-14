@@ -1,3 +1,5 @@
+@import 'style/mixins';
+
 .checkout-tab {
     padding: var(--unnamed-pixel-20) 0;
 
@@ -27,5 +29,29 @@
         color: var(--black);
         line-height: var(--unnamed-line-spacing-32);
         font-weight: 700;
+    }
+}
+
+.sign-in-section {
+    margin-top: var(--unnamed-pixel-20);
+    padding: var(--unnamed-pixel-16);
+    border: var(--unnamed-border-solid);
+
+    @include desktop {
+        display: block;
+        margin-left: var(--unnamed-pixel-20);
+    }
+}
+
+
+.edit-button {
+    display: none;
+
+    @include desktop {
+        display: inline-flex;
+        margin-left: var(--unnamed-pixel-4);
+        font-size: var(--unnamed-font-size-14);
+        font-weight: 600;
+        color: var(--primary-m1);
     }
 }
