@@ -1,0 +1,12 @@
+.venia-form-radio {
+    display: flex;
+    margin-bottom: var(--unnamed-pixel-16);
+    width: fit-content;
+
+    input[type="radio"] {
+        width: var(--unnamed-pixel-20);
+        height: var(--unnamed-pixel-20);
+        margin-left: 0;
+        margin-right: var(--unnamed-pixel-20);
+    }
+}

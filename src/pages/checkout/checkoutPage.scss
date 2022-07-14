@@ -1,0 +1,31 @@
+.checkout-tab {
+    padding: var(--unnamed-pixel-20) 0;
+
+    &.inactive {
+        border-bottom: var(--unnamed-border-solid);
+        color: var(--gray-d1);
+        font-weight: 600;
+        font-size: var(--unnamed-pixel-20);
+    }
+}
+
+.border-bottom {
+    border-bottom: var(--unnamed-border-solid);
+    padding-bottom: var(--unnamed-pixel-28);
+}
+
+.place-order-button-section {
+    text-align: center;
+    font-size: var(--unnamed-font-size-14);
+    padding-top: var(--unnamed-pixel-20);
+
+    button {
+        margin-bottom: var(--unnamed-pixel-20);
+    }
+
+    a {
+        color: var(--black);
+        line-height: var(--unnamed-line-spacing-32);
+        font-weight: 700;
+    }
+}

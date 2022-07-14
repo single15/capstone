@@ -54,15 +54,17 @@ const Footer = () => {
                     <>
                         {maches ? (
                             <article className='aem-Grid aem-Grid--12'>
-                                <div className='aem-GridColumn aem-GridColumn--tablet--12 aem-GridColumn--phone--12'>
+                                <div className='aem-GridColumn aem-GridColumn--tablet--6 aem-GridColumn--phone--6'>
                                     <Link to="/">Term of Use</Link>
+                                </div>
+                                <div className='aem-GridColumn aem-GridColumn--tablet--6 aem-GridColumn--phone--6'>
                                     <Link to="/">Privacy Policy</Link>
                                 </div>
                                 <div className='aem-GridColumn aem-GridColumn--tablet--12 aem-GridColumn--phone--12'>
-                                    <span>Copyright©2022 Venia, Inc. </span>
-                                    <span>
-                                        All rights reserved.
-                                    </span>
+                                    <span>Copyright©2022 Venia, Inc. </span>                                    
+                                </div>
+                                <div className='aem-GridColumn aem-GridColumn--tablet--12 aem-GridColumn--phone--12'>
+                                    All rights reserved.
                                 </div>
                                 <div className='aem-GridColumn aem-GridColumn--tablet--12 aem-GridColumn--phone--12'>
                                     <Logo />

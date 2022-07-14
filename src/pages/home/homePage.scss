@@ -105,7 +105,7 @@
                 text-align: center;
 
                 .horizontal-bar {
-                    margin-top: 8px;
+                    margin-top: var(--unnamed-pixel-8);
                 }
             }
 
@@ -116,14 +116,6 @@
                 padding: var(--unnamed-pixel-12) 0;
                 border-radius: var(--unnamed-pixel-16);
             }
-        }
-    }
-
-    .slider-wraaper {
-        min-height: 92vh;
-
-        .gallery-slider-section {
-            min-height: 80vh;
         }
     }
 }

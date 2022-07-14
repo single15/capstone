@@ -22,6 +22,10 @@
             float: left;
         }
     }
+
+    .image-content {
+        height: 58vh;
+    }
 }
 
 .hero-banner-section {
@@ -30,7 +34,7 @@
     .text-content {
         display: flex;
         align-items: center;        
-        position: absolute;        
+        position: absolute;
         bottom: 92px;
         text-align: center;
         color: white;

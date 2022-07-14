@@ -10,7 +10,7 @@
 
     .action-button {
         text-align: center;
-        width: 52px !important;
+        width: var(--unnamed-pixel-52) !important;
         height: var(--unnamed-pixel-20);
         cursor: pointer;
     }

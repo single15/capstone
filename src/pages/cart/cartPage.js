@@ -36,9 +36,11 @@ const CartPage = () => {
                     </div>
 
                 }
-                {cartItems.length > 0 && <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--phone--12">
-                    <PriceSummary />
-                </div>}
+                {cartItems.length > 0 && 
+                    <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--phone--12">
+                        <PriceSummary />
+                    </div>
+                }
             </div>
             <div className="aem-Grid aem-Grid--12 recently-viewed-section">
                 <RecentlyViewed />

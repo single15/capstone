@@ -1,0 +1,25 @@
+.payment-info-readonly {
+    padding: var(--unnamed-pixel-16);
+    border: var(--unnamed-border-solid);
+    .header {
+        margin-bottom: var(--unnamed-pixel-12);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .user-details-section {
+        color: var(--gray-d1);
+    }
+}
+
+.credit-card-details {
+    border-bottom: var(--unnamed-border-solid);
+    padding-bottom: var(--unnamed-pixel-8);
+    margin-bottom: var(--unnamed-pixel-24);
+
+    .expiration-date {
+        .venia-form-input {
+            margin-right: var(--unnamed-pixel-20);
+        }
+    }
+}

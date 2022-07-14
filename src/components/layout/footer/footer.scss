@@ -10,31 +10,6 @@
         }
     }
 
-    article:nth-child(2) {
-        border-top: none;
-
-        div {
-            min-height: 36px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-
-            a {
-                margin-left: var(--unnamed-pixel-16);
-                color: black;
-            }
-
-            span {
-                display: block;
-            }
-        }
-
-        div:nth-child(3) {
-            display: flex;
-            justify-content: flex-end;
-        }
-    }
-
     .footer-block {
         min-height: 160px;
 
@@ -59,6 +34,40 @@
         .social-links {
             svg {
                 padding-right: var(--unnamed-pixel-16);
+            }
+        }
+    }
+
+    article:nth-child(2) {
+        border-top: none;
+
+        div {
+            min-height: var(--unnamed-pixel-32);
+            text-align: center;
+            display: flex;
+            align-items: center;
+
+            a {
+                margin-left: var(--unnamed-pixel-16);
+                color: black;
+            }
+
+            span {
+                display: block;
+            }
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    @include desktop {
+        article:nth-child(2) {
+            div:nth-child(3) {
+                display: flex;
+                justify-content: flex-end;
             }
         }
     }

@@ -1,0 +1,28 @@
+.order-items-section {
+    padding: var(--unnamed-pixel-16);
+    border: var(--unnamed-border-solid);
+    margin-bottom: var(--unnamed-pixel-24);
+
+
+    .order-item {
+        margin-top: var(--unnamed-pixel-24);
+        overflow: hidden;
+
+        figure {
+            margin: 0 var(--unnamed-pixel-16) 0 0;
+            height: 168px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        h4 {
+            margin-top: 0;
+            margin-bottom: var(--unnamed-pixel-12);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

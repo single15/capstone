@@ -38,7 +38,7 @@
 
                     li {
                         display: block;
-                        padding: 16px 0;
+                        padding: var(--unnamed-pixel-16) 0;
 
                         a {
                             text-decoration: none;
@@ -49,8 +49,8 @@
 
                 .close {
                     position: absolute;
-                    top: 16px;
-                    right: 16px;
+                    top: var(--unnamed-pixel-16);
+                    right: var(--unnamed-pixel-16);
                 }
             }
         }
@@ -92,7 +92,7 @@
 
                             a.underline {
                                 padding-bottom: var(--unnamed-pixel-16);
-                                border-bottom: 4px solid var(--white);
+                                border-bottom: var(--unnamed-pixel-4) solid var(--white);
                             }
                         }
                     }

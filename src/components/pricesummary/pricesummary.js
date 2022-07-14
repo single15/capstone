@@ -4,6 +4,7 @@ import paypal from 'assets/images/paypal-link.png';
 import { ReactComponent as LockIcon } from 'assets/lock.svg'
 import 'components/pricesummary/pricesummary.scss';
 import { useSelector } from "react-redux";
+import { useMatch, useNavigate } from "react-router-dom";
 
 const getPrice = (isFree, isDiscount, price) => isFree ? 'FREE' : isDiscount ? `- $ ${price?.toFixed(2)}` : `$ ${price?.toFixed(2)}`;
 
@@ -30,8 +31,10 @@ const PriceSummary = () => {
     const [giftCard, setGiftCardValue] = useState(0);
     const [estimatedTax, setEstimatedTax] = useState(0);
     const [isFree, setIsFree] = useState(true);
+    const checkoutPage = useMatch('/checkout');
 
     const cartItems = useSelector(store => store.cart.cart);
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -47,7 +50,6 @@ const PriceSummary = () => {
         setIsFree(total > 500);
 
     }, [cartItems]);
-
 
     const getEstimatedTotal = () => {
         const es = isFree ? 0 : 50;
@@ -66,10 +68,10 @@ const PriceSummary = () => {
                     <PriceSummaryItem label='Estimated shipping' isFree={isFree} price={50} />
                     <PriceSummaryItem label='Estimated Total' price={getEstimatedTotal()} isTotal={true} />
                 </div>
-                <div className="aem-GridColumn aem-GridColumn--default--12 button-section">
-                    <Button type="primary"><LockIcon />&nbsp;&nbsp;CHECKOUT</Button>
+                {!checkoutPage && <div className="aem-GridColumn aem-GridColumn--default--12 button-section">
+                    <Button type="primary" onClick={() => navigate('/checkout')}><LockIcon />&nbsp;&nbsp;CHECKOUT</Button>
                     <img src={paypal} alt="paypal_link" />
-                </div>
+                </div>}
             </div>
         </section>
 

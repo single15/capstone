@@ -1,0 +1,38 @@
+@import 'style/mixins';
+
+.order-summary-section {
+    .user-details-section {
+        color: var(--gray-d1);
+
+        .user-contact-section {
+            margin-bottom: var(--unnamed-pixel-16);
+        }
+    }
+
+    .order-items-section {
+        padding: 0;
+        border: none;
+        margin-top: var(--unnamed-pixel-16);
+    }
+}
+
+.offer-banner-for-next-order {
+    display: none;
+    padding: var(--unnamed-pixel-36) 84px;
+    font-size: var(--unnamed-font-size-24);
+    background: var(--primary-l1);
+    color: var(--white);
+
+    .social-icon-section {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: var(--unnamed-pixel-24);
+    }
+
+    @include desktop {
+        display: block;
+    }
+    @include tablet {
+        display: block;
+    }
+}
