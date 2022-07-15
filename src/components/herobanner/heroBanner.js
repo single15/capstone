@@ -3,7 +3,6 @@ import React from 'react';
 import 'components/herobanner/heroBanner.scss';
 
 const HeroBanner = (props) => {
-
     return (
         <section className="hero-banner-section">
             <div className='aem-Grid aem-Grid--12'>
@@ -16,7 +15,7 @@ const HeroBanner = (props) => {
                                 {props.description}
                             </p>
                             <center>
-                                <Button type="primary" width={180}>SHOP NOW</Button>
+                                <Button type="primary" width={180} onClick={props.navigateToShop}>SHOP NOW</Button>
                             </center>
                         </div>
                     </div>

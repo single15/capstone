@@ -22,6 +22,15 @@ const Menus = ({ toggleMenu }) => (
             </NavLink>
         </li>
         <li>
+            <NavLink to="/product/list/shop"
+                className={({ isActive }) =>
+                    isActive ? activeClassName : undefined
+                }
+                onClick={toggleMenu}>
+                Shop
+            </NavLink>
+        </li>
+        <li>
             <NavLink to="/product/list/women"
                 className={({ isActive }) =>
                     isActive ? activeClassName : undefined

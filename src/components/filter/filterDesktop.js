@@ -4,7 +4,7 @@ import FilterTag from "components/filter/filterTag";
 import { CATEGORIES_FILTER } from "components/filter/utils";
 
 
-const FilterDesktop = () => {
+const FilterDesktop = (props) => {
     const [selectedFilter, setFilter] = useState();
 
     const setFilterValue = (value) => {
@@ -16,6 +16,7 @@ const FilterDesktop = () => {
             items = [...items, value];
         }
         setFilter(items);
+        props.setCategory(items);
     }
 
     return (
@@ -23,7 +24,10 @@ const FilterDesktop = () => {
             <div className="section-header">
                 Filters
             </div>
-            <FilterTag selectedFilter={selectedFilter} clearFilter={() => setFilter([])} />
+            <FilterTag selectedFilter={selectedFilter} clearFilter={() => {
+                setFilter([]);
+                props.setCategory([]);
+            }} />
             <FilterBlock blockLabel={"Categories"} options={CATEGORIES_FILTER} setFilterValue={setFilterValue} selectedFilter={selectedFilter} />
         </div>
     )

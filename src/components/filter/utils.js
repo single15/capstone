@@ -28,7 +28,7 @@ export const BRAND_FILTER = [
 ]
 
 export const CATEGORIES_FILTER = [
-    { id: 'jewellery', value: 'Jewellery' },
+    { id: 'jewelery', value: 'Jewelery' },
     { id: 'electronics', value: 'Electronics' },
     { id: 'men', value: 'Men\'s Clothing' },
     { id: 'women', value: 'Women\'s Clothing' }

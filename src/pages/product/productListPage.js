@@ -11,8 +11,8 @@ import FilterDesktop from 'components/filter/filterDesktop';
 import Dropdown from 'components/dropdown/dropdown';
 import { useLocation, useParams } from 'react-router-dom';
 import { RECORDS_PER_PAGE } from 'components/pagination/pagination';
-import 'pages/product/listPage.scss';
 import { cloneDeep } from 'lodash';
+import 'pages/product/listPage.scss';
 
 const PRICEHIGHTOLOW = "priceHighToLow";
 const PRICELOWTOHIGHT = "priceLowToHigh";
@@ -33,8 +33,10 @@ const getCategory = (category) => {
             return 'women\'s clothing';
         case 'men':
             return 'men\'s clothing';
-        case 'jewellery': 
+        case 'jewelery': 
             return 'jewelery';
+        case 'shop': 
+            return '';
         default:
             return category;
     }
@@ -91,6 +93,15 @@ export default function ProductListPage() {
         setSortBy(value);
     }
 
+
+    const setCategory = (categories) => {
+        let cat = categories.map(cat => cat.toLowerCase());
+        let filterProducts = cat.length ? cacheProducts.filter((product) => cat.includes(product.category)) : cacheProducts;
+        filterProducts = sortByEntity(sortBy, filterProducts);
+        setProducts(getPageData(1, filterProducts));
+        setFilteredProducts(filterProducts);
+    }
+
     return (
         <article className='list-page'>
             <Banner>
@@ -132,7 +143,7 @@ export default function ProductListPage() {
 
                                 <div className='aem-Grid aem-Grid--12'>
                                     <div className='aem-GridColumn aem-GridColumn--default--3'>
-                                        <FilterDesktop />
+                                        <FilterDesktop setCategory={setCategory} />
                                     </div>
                                     <div className='aem-GridColumn aem-GridColumn--default--9'>
                                         <ProductList products={products} filteredProducts={filteredProducts} />

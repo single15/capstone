@@ -2,13 +2,13 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import App from "App";
 import Loader from "components/loader/loader";
-import CheckoutPage from "pages/checkout/checkoutPage";
-import OrderSummary from "pages/order/order";
 
 const HomePage = React.lazy(() => import("pages/home/homePage"));
 const ProductDetailPage = React.lazy(() => import("pages/product/productDetailPage"));
 const ProductListPage = React.lazy(() => import("pages/product/productListPage"));
 const CartPage = React.lazy(() => import("pages/cart/cartPage"));
+const CheckoutPage = React.lazy(() => import("pages/checkout/checkoutPage"));
+const OrderSummary = React.lazy(() => import("pages/order/order"));
 
 
 const Router = () => (

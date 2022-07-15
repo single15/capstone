@@ -14,11 +14,11 @@ export const CATEGORIES = [
         link: '/product/list/men'
     },
     {
-        id: 'jewellery',
+        id: 'jewelery',
         source: 'https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg',
-        title: 'Jewellery',
+        title: 'jewelery',
         description: 'Lorem ipsum dolor sit amet',
-        link: '/product/list/jewellery'
+        link: '/product/list/jewelery'
     },
     {
         id: 'electronics',

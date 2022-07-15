@@ -9,6 +9,7 @@ import HeroBanner from 'components/herobanner/heroBanner';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 import 'pages/home/homePage.scss';
+import { useNavigate } from 'react-router-dom';
 
 const responsive = {
     superLargeDesktop: {
@@ -30,10 +31,15 @@ const responsive = {
 };
 
 export default function HomePage() {
+    const navigate = useNavigate();
+
+    const navigateToShop = () => {
+        navigate('/product/list/shop')
+    }
     return (
         <article className='home-page'>
             <Carousel responsive={responsive}>
-                {HEROBANNERITEMS.map(item => <HeroBanner key={`banner_key_${item.id}`} label={item.label} description={item.description} source={item.source} />)}
+                {HEROBANNERITEMS.map(item => <HeroBanner key={`banner_key_${item.id}`} label={item.label} description={item.description} source={item.source} shopNow={navigateToShop} />)}
             </Carousel>
             <div className='container'>
                 <div className='categories'>
@@ -62,8 +68,8 @@ export default function HomePage() {
                                     labore dolore magna lorem ipsum dolor sit dolore magna.
                                 </p>
                                 <div className='button-section'>
-                                    <Button type="secondary">SHOP COLLECTION</Button>&nbsp;&nbsp;
-                                    <Button type="primary">SHOP NOW</Button>
+                                    <Button type="secondary" onClick={navigateToShop}>SHOP COLLECTION</Button>&nbsp;&nbsp;
+                                    <Button type="primary" onClick={navigateToShop}>SHOP NOW</Button>
                                 </div>
                                 <HorizontalBar />
                             </div>
@@ -77,7 +83,7 @@ export default function HomePage() {
                         <span>next adventure</span>
                     </h1>
                     <p>Lorem Ipsum Dolor Tempor</p>
-                    <Button type="secondary">SHOP DEVICES</Button>
+                    <Button type="secondary" onClick={() => navigate('/product/list/electronics')}>SHOP DEVICES</Button>
                     <div className='marker-section'>
                         <MapPinIcon />
                         <HorizontalBar />
