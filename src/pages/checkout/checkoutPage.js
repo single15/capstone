@@ -8,6 +8,7 @@ import OrderItems from './orderItems/orderItems';
 import Button from 'components/button/button';
 import { NavLink, useNavigate } from 'react-router-dom';
 import HorizontalBar from 'components/horizontalbar/horizontalbar';
+import { isEmpty } from 'lodash';
 import 'pages/checkout/checkoutPage.scss';
 
 const SHIPPING_INFO = 'SHIPPING_INFO';
@@ -20,6 +21,11 @@ const ViewTab = ({ serialNumber, tabLabel }) => (
     </div>
 )
 
+const isFormFilled = (checkoutData) => {
+    const { paymentInformation } = checkoutData;
+    return !isEmpty(paymentInformation.paymentType);
+}
+
 const CheckoutPage = () => {
     const [activeView, toggleView] = useState({
         [SHIPPING_INFO]: true,
@@ -27,6 +33,7 @@ const CheckoutPage = () => {
         [PAYMENT_INFO]: false
     })
     const cartItems = useSelector(store => store.cart.cart);
+    const checkoutData = useSelector(store => store.checkout)
     const navigate = useNavigate();
 
     const handleView = (view) => {
@@ -86,7 +93,6 @@ const CheckoutPage = () => {
                                 </div>
                             </section>
                         </div>
-
                     }
 
                     {cartItems.length > 0 &&
@@ -97,7 +103,7 @@ const CheckoutPage = () => {
 
                     <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--tablet--7 aem-GridColumn--phone--12 place-order-button-section'>
                         <center>
-                            <Button type="primary" width={280} onClick={() => navigate('/ordersummary')}>PLACE ORDER</Button>
+                            <Button type="primary" width={280} onClick={() => navigate('/ordersummary')} disabled={isFormFilled(checkoutData)}>PLACE ORDER</Button>
                         </center>
                         <div>
                             By Clicking confirm order you agree to our&nbsp;&nbsp;
@@ -107,8 +113,6 @@ const CheckoutPage = () => {
                 </div>
             </div>
         </section>
-
-
     )
 }
 

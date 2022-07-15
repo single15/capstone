@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useMatch } from 'react-router-dom';
 import { ABOUTUS_LINKS, ACCOUNT_LINKS, HELP_LINKS } from 'components/layout/footer/utils';
 import { ReactComponent as Instagram } from 'assets/instagram.svg'
 import { ReactComponent as Facebook } from 'assets/facebook.svg'
@@ -24,10 +24,12 @@ const FooterBlock = ({ blockLable, links }) => (
 
 
 const Footer = () => {
+    const isCheckoutPage = useMatch('/checkout');
+    const isOrderSummaryPage = useMatch('/ordersummary');
 
     return (
         <footer className='footer-section'>
-            <article>
+            {!isOrderSummaryPage && !isCheckoutPage && <article>
                 <div className='container'>
                     <div className='aem-Grid aem-Grid--12'>
                         <FooterBlock blockLable={"Account"} links={ACCOUNT_LINKS} />
@@ -47,7 +49,7 @@ const Footer = () => {
                         </section>
                     </div>
                 </div>
-            </article>
+            </article>}
 
             <Media query={'(max-width: 1023px)'}>
                 {maches => (
