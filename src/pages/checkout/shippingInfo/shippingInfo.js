@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import BasicInput from 'components/basicInput/basicInput';
 import NumberFormat from "react-number-format";
 import Button from 'components/button/button';
 import { SHIPPING_INFORMATION_FIELDS } from 'pages/checkout/shippingInfo/fields';
 import { ReactComponent as EditIcon } from 'assets/edit-blue.svg';
-import 'pages/checkout/shippingInfo/shippingInfo.scss';
 import { useDispatch } from 'react-redux';
 import { updateShippingInfo } from 'reducer/checkout';
+import BasicSelect from 'components/basicSelect/basicSelect';
+import 'pages/checkout/shippingInfo/shippingInfo.scss';
 
 
 const ReadonlySection = ({ data, toggleEditMode }) => (
@@ -38,6 +39,8 @@ const ReadonlySection = ({ data, toggleEditMode }) => (
 const ShippingInfo = (props) => {
     const [editMode, toggleEditMode] = useState(true);
     const [formData, setFormData] = useState({});
+    const [countries, setCountries] = useState([]);
+    const [states, setStates] = useState([]);
     const { register, handleSubmit, control } = useForm({ shouldUnregister: false });
 
     const dispatch = useDispatch();
@@ -47,6 +50,34 @@ const ShippingInfo = (props) => {
         toggleEditMode(false);
         props.clickContinue();
         dispatch(updateShippingInfo(data));
+    }
+
+    useEffect(() => {
+        fetch("https://countriesnow.space/api/v0.1/countries/states")
+            .then(response => response.json())
+            .then(result => {
+                const data = result.data;
+                const c = [];
+                data.forEach(co => {
+                    c.push({
+                        value: co.iso3+co.iso2,
+                        label: co.name,
+                        ...co
+                    })
+                })
+
+                setCountries(c);
+            })
+            .catch(error => console.log('error', error));
+    }, []);
+
+    const handleChange = (e) => {
+        const countryCode = e.target.value;
+        let s = countries.filter(co => co.value === countryCode)[0].states;
+        setStates(s.map(st => ({
+            value: st.state_code,
+            label: st.name
+        })));
     }
 
     return (
@@ -97,6 +128,41 @@ const ShippingInfo = (props) => {
                             field.name === 'country' ?
                                 <div className='aem-Grid aem-Grid--12' key={field.name}>
                                     <div className='aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--12'>
+                                        <BasicSelect
+                                            label={field.label}
+                                            name={field.name}
+                                            id={field.id}
+                                            isRequired={field.isRequired}
+                                            options={countries}
+                                            {...register(field.name, {
+                                                required: {
+                                                    value: field.isRequired,
+                                                    message: field.isRequired && 'This is a required field.'
+                                                },
+                                                onChange: handleChange
+                                            })}
+                                        />
+                                    </div>
+                                </div>
+                                : field.name === 'state' ?
+                                    <div className={`aem-GridColumn aem-GridColumn--default--${field.size} aem-GridColumn--tablet--6 aem-GridColumn--phone--12`} key={field.name}>
+                                        <BasicSelect
+                                            label={field.label}
+                                            name={field.name}
+                                            id={field.id}
+                                            isRequired={field.isRequired}
+                                            options={states}
+                                            disabled={states.length === 0}
+                                            {...register(field.name, {
+                                                required: {
+                                                    value: field.isRequired,
+                                                    message: field.isRequired && 'This is a required field.'
+                                                }
+                                            })}
+                                        />
+                                    </div>
+                                    :
+                                    <div className={`aem-GridColumn aem-GridColumn--default--${field.size} aem-GridColumn--tablet--6 aem-GridColumn--phone--12`} key={field.name}>
                                         <BasicInput
                                             label={field.label}
                                             type={field.type}
@@ -110,22 +176,6 @@ const ShippingInfo = (props) => {
                                             })}
                                         />
                                     </div>
-                                </div>
-                                :
-                                <div className={`aem-GridColumn aem-GridColumn--default--${field.size} aem-GridColumn--tablet--6 aem-GridColumn--phone--12`} key={field.name}>
-                                    <BasicInput
-                                        label={field.label}
-                                        type={field.type}
-                                        placeholder={field.placeholder}
-                                        isRequired={field.isRequired}
-                                        {...register(field.name, {
-                                            required: {
-                                                value: field.isRequired,
-                                                message: field.isRequired && 'This is a required field.'
-                                            }
-                                        })}
-                                    />
-                                </div>
                         )}
                     </section>
                     <center>

@@ -1,0 +1,42 @@
+@import 'style/mixins';
+
+.venia-form-select {
+    margin-bottom: var(--unnamed-pixel-20);
+
+    .label-section {
+        display: flex;
+        justify-content: space-between;
+
+        span {
+            font-size: var(--unnamed-font-size-12);
+        }
+
+    }
+
+    label {
+        display: block;
+        margin-bottom: var(--unnamed-pixel-4);
+        font-weight: 600;            
+    }
+
+    select {
+        width: 100%;
+        outline: none;
+        padding: var(--unnamed-pixel-8) var(--unnamed-pixel-16);
+        border-radius: var(--unnamed-pixel-8);
+        border: var(--unnamed-border-solid-2);
+        appearance: none;
+        background-image: url('../../assets/chevron-down.svg');
+        background-repeat: no-repeat;
+        background-position-y: center;
+        background-position-x: 98%;
+    }
+
+    @include desktop {
+        margin-right: var(--unnamed-pixel-20);
+    }
+
+    @include tablet {
+        margin-right: var(--unnamed-pixel-20);
+    }
+}
