@@ -47,7 +47,7 @@ const CheckoutPage = () => {
                     <HorizontalBar />
                 </center>
                 <div className='aem-Grid aem-Grid--12'>
-                    <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--tablet--10 aem-GridColumn--phone--12'>
+                    <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--tablet--7 aem-GridColumn--phone--12'>
                         <h3>Guest Checkout</h3>
                         <div className='checkout-tab'>
                             <ShippingInfo clickContinue={() => handleView(SHIPPING_METHOD)} clickEditMode={() => handleView(SHIPPING_INFO)} />
@@ -74,14 +74,14 @@ const CheckoutPage = () => {
                     </div>
 
                     {!activeView[SHIPPING_METHOD] && !activeView[PAYMENT_INFO] &&
-                        <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--10 aem-GridColumn--phone--12 sign-in-section-wrapper">
+                        <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--5 aem-GridColumn--phone--hide sign-in-section-wrapper">
                             <section className='sign-in-section'>
                                 <div className='aem-Grid aem-Grid--12'>
                                     <div className='aem-GridColumn aem-GridColumn--default--7 aem-GridColumn--tablet--8 aem-GridColumn--phone--6'>
                                         Sign in for Express Checkout
                                     </div>
                                     <div className='aem-GridColumn aem-GridColumn--default--5 aem-GridColumn--tablet--4 aem-GridColumn--phone--6'>
-                                        <Button type="secondary">SIGN IN</Button>
+                                        <Button type="secondary" disabled={true}>SIGN IN</Button>
                                     </div>
                                 </div>
                             </section>
@@ -90,12 +90,12 @@ const CheckoutPage = () => {
                     }
 
                     {cartItems.length > 0 &&
-                        <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--10 aem-GridColumn--phone--12">
+                        <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--5 aem-GridColumn--phone--12">
                             <PriceSummary />
                         </div>
                     }
 
-                    <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--tablet--10 aem-GridColumn--phone--12 place-order-button-section'>
+                    <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--tablet--7 aem-GridColumn--phone--12 place-order-button-section'>
                         <center>
                             <Button type="primary" width={280} onClick={() => navigate('/ordersummary')}>PLACE ORDER</Button>
                         </center>

@@ -18,7 +18,7 @@ const responsive = {
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 2
+        items: 3
     },
     mobile: {
         breakpoint: { max: 464, min: 0 },
@@ -50,7 +50,9 @@ const RecentlyViewed = () => {
                         {items.map((item) =>
                             <NavLink key={item.id} to={`/product/${item.id}`} style={{ color: '#000', textDecoration: 'none' }}>
                                 <div>
-                                    <img src={item.image} alt={item.title} height={180} />
+                                    <center>
+                                        <img src={item.image} alt={item.title} height={180} />
+                                    </center>                                    
                                 </div>
                                 <div style={{ marginTop: 8 }}>
                                     <b>{item.title}</b>

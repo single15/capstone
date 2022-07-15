@@ -17,7 +17,6 @@
 }
 
 .offer-banner-for-next-order {
-    display: none;
     padding: var(--unnamed-pixel-36) 84px;
     font-size: var(--unnamed-font-size-24);
     background: var(--primary-l1);
@@ -27,12 +26,5 @@
         display: flex;
         justify-content: space-evenly;
         margin-top: var(--unnamed-pixel-24);
-    }
-
-    @include desktop {
-        display: block;
-    }
-    @include tablet {
-        display: block;
     }
 }

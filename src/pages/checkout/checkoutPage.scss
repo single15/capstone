@@ -41,11 +41,16 @@
         display: block;
         margin-left: var(--unnamed-pixel-20);
     }
+    
+    @include tablet {
+        display: block;
+        margin-left: var(--unnamed-pixel-20);
+    }
 }
 
 
 .edit-button {
-    display: none;
+    //display: none;
 
     @include desktop {
         display: inline-flex;

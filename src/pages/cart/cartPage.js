@@ -42,8 +42,10 @@ const CartPage = () => {
                     </div>
                 }
             </div>
-            <div className="aem-Grid aem-Grid--12 recently-viewed-section">
-                <RecentlyViewed />
+            <div className="aem-Grid aem-Grid--12">
+                <div className="aem-GridColumn aem-GridColumn--default--12 aem-GridColumn--tablet--12 aem-GridColumn--phone--12">
+                    <RecentlyViewed />
+                </div>                
             </div>
         </div>
     )

@@ -10,12 +10,4 @@
         padding: 0 0 var(--unnamed-pixel-24) var(--unnamed-pixel-24);
         margin-top: var(--unnamed-pixel-24);
     }
-
-    .recently-viewed-section {
-        display: none;
-
-        @include desktop {
-            display: block;
-        }
-    }
 }

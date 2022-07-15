@@ -72,7 +72,7 @@ const OrderSummary = () => {
 
                     </div>
                 </div>
-                <div className='aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--phone--12 aem-GridColumn--tablet--4 offer-banner-for-next-order'>
+                <div className='aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--phone--hide aem-GridColumn--tablet--4 offer-banner-for-next-order'>
                     <div>
                         Give us a follow to SAVE 20% on your next order
                     </div>
