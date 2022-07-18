@@ -63,7 +63,7 @@ const Menus = ({ toggleMenu }) => (
                     isActive ? activeClassName : undefined
                 }
                 onClick={toggleMenu}>
-                Jewellery
+                Jewelery
             </NavLink>
         </li>
     </ul>
