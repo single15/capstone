@@ -184,7 +184,7 @@ const ShippingInfo = (props) => {
                 </form>
             </div>
             : <ReadonlySection data={formData} toggleEditMode={() => {
-                toggleEditMode(!editMode);
+                toggleEditMode(true);
                 props.clickEditMode();
             }} />
     )

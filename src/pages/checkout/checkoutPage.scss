@@ -50,7 +50,7 @@
 
 
 .edit-button {
-    //display: none;
+    display: none;
 
     @include desktop {
         display: inline-flex;
