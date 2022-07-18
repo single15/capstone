@@ -58,7 +58,7 @@ const Menus = ({ toggleMenu }) => (
             </NavLink>
         </li>
         <li>
-            <NavLink to="/product/list/jewellery"
+            <NavLink to="/product/list/jewelery"
                 className={({ isActive }) =>
                     isActive ? activeClassName : undefined
                 }
