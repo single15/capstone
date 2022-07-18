@@ -23,7 +23,7 @@ const ViewTab = ({ serialNumber, tabLabel }) => (
 
 const isFormFilled = (checkoutData) => {
     const { paymentInformation } = checkoutData;
-    return !isEmpty(paymentInformation.paymentType);
+    return isEmpty(paymentInformation.paymentType);
 }
 
 const CheckoutPage = () => {
