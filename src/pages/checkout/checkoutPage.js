@@ -23,7 +23,7 @@ const ViewTab = ({ serialNumber, tabLabel }) => (
 
 const isFormFilled = (checkoutData) => {
     const { paymentInformation } = checkoutData;
-    return isEmpty(paymentInformation.paymentType);
+    return isEmpty(paymentInformation?.paymentType);
 }
 
 const CheckoutPage = () => {
@@ -35,6 +35,7 @@ const CheckoutPage = () => {
     const cartItems = useSelector(store => store.cart.cart);
     const checkoutData = useSelector(store => store.checkout)
     const navigate = useNavigate();
+    const disabled = isFormFilled(checkoutData);
 
     const handleView = (view) => {
         const data = {
@@ -103,7 +104,7 @@ const CheckoutPage = () => {
 
                     <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--tablet--7 aem-GridColumn--phone--12 place-order-button-section'>
                         <center>
-                            <Button type="primary" width={280} onClick={() => navigate('/ordersummary')} disabled={isFormFilled(checkoutData)}>PLACE ORDER</Button>
+                            <Button type="primary" width={280} onClick={() => navigate('/ordersummary')} disabled={disabled || !activeView[PAYMENT_INFO]}>PLACE ORDER</Button>
                         </center>
                         <div>
                             By Clicking confirm order you agree to our&nbsp;&nbsp;
