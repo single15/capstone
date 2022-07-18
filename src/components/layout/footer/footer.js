@@ -29,51 +29,54 @@ const Footer = () => {
 
     return (
         <footer className='footer-section'>
-            {!isOrderSummaryPage && !isCheckoutPage && <article>
-                <div className='container'>
-                    <div className='aem-Grid aem-Grid--12'>
-                        <FooterBlock blockLable={"Account"} links={ACCOUNT_LINKS} />
-                        <FooterBlock blockLable={"About Us"} links={ABOUTUS_LINKS} />
-                        <FooterBlock blockLable={"Help"} links={HELP_LINKS} />
+            <article className={`${isOrderSummaryPage || isCheckoutPage ? 'mobile' : ''}`}>
+                {!isOrderSummaryPage && !isCheckoutPage &&
+                    <div className='container'>
+                        <div className='aem-Grid aem-Grid--12'>
+                            <FooterBlock blockLable={"Account"} links={ACCOUNT_LINKS} />
+                            <FooterBlock blockLable={"About Us"} links={ABOUTUS_LINKS} />
+                            <FooterBlock blockLable={"Help"} links={HELP_LINKS} />
 
-                        <section className='footer-block aem-GridColumn aem-GridColumn--default--3 aem-GridColumn--tablet--6 aem-GridColumn--phone--12'>
-                            <div><b>Follow Us!</b></div>
-                            <div className='followus-info'>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                            </div>
-                            <div className='social-links'>
-                                <Instagram />
-                                <Facebook />
-                                <Twitter />
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </article>}
+                            <section className='footer-block aem-GridColumn aem-GridColumn--default--3 aem-GridColumn--tablet--6 aem-GridColumn--phone--12'>
+                                <div><b>Follow Us!</b></div>
+                                <div className='followus-info'>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+                                </div>
+                                <div className='social-links'>
+                                    <Instagram />
+                                    <Facebook />
+                                    <Twitter />
+                                </div>
+                            </section>
+                        </div>
+                    </div>}
+            </article>
 
             <Media query={'(max-width: 1023px)'}>
                 {maches => (
                     <>
                         {maches ? (
-                            <article className='aem-Grid aem-Grid--12'>
-                                <div className='aem-GridColumn aem-GridColumn--tablet--6 aem-GridColumn--phone--6'>
-                                    <Link to="/">Term of Use</Link>
-                                </div>
-                                <div className='aem-GridColumn aem-GridColumn--tablet--6 aem-GridColumn--phone--6'>
-                                    <Link to="/">Privacy Policy</Link>
-                                </div>
-                                <div className='aem-GridColumn aem-GridColumn--tablet--12 aem-GridColumn--phone--12'>
-                                    <span>Copyright©2022 Venia, Inc. </span>                                    
-                                </div>
-                                <div className='aem-GridColumn aem-GridColumn--tablet--12 aem-GridColumn--phone--12'>
-                                    All rights reserved.
-                                </div>
-                                <div className='aem-GridColumn aem-GridColumn--tablet--12 aem-GridColumn--phone--12'>
-                                    <Logo />
-                                </div>
+                            <article className='footer-bottom-section'>
+                                <section className='aem-Grid aem-Grid--12'>
+                                    <div className='aem-GridColumn aem-GridColumn--tablet--6 aem-GridColumn--phone--6'>
+                                        <Link to="/">Term of Use</Link>
+                                    </div>
+                                    <div className='aem-GridColumn aem-GridColumn--tablet--6 aem-GridColumn--phone--6'>
+                                        <Link to="/">Privacy Policy</Link>
+                                    </div>
+                                    <div className='aem-GridColumn aem-GridColumn--tablet--12 aem-GridColumn--phone--12'>
+                                        <span>Copyright©2022 Venia, Inc. </span>
+                                    </div>
+                                    <div className='aem-GridColumn aem-GridColumn--tablet--12 aem-GridColumn--phone--12'>
+                                        All rights reserved.
+                                    </div>
+                                    <div className='aem-GridColumn aem-GridColumn--tablet--12 aem-GridColumn--phone--12'>
+                                        <Logo />
+                                    </div>
+                                </section>
                             </article>
                         ) :
-                            <article>
+                            <article className='footer-bottom-section'>
                                 <div className='aem-Grid aem-Grid--12 container'>
                                     <div className='aem-GridColumn aem-GridColumn--default--4'>
                                         <Logo />

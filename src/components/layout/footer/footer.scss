@@ -8,6 +8,10 @@
         &:nth-child(1) {
             padding: var(--unnamed-pixel-16) var(--unnamed-pixel-16);
         }
+
+        &.mobile {
+            padding: 0;
+        }
     }
 
     .footer-block {
@@ -38,8 +42,9 @@
         }
     }
 
-    article:nth-child(2) {
+    .footer-bottom-section {
         border-top: none;
+        padding: var(--unnamed-pixel-16) var(--unnamed-pixel-16);
 
         div {
             min-height: var(--unnamed-pixel-32);
