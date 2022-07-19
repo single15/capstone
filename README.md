@@ -22,6 +22,7 @@ Application used 3rd party libraries like below:
 1. **react-media** => This react npm package is used to handle responsiveness of application on different types of devices.
 2. **lodash** => This package is use to handle some javascript functionality 
 3. **react-multi-carousel** => This package is used to handle carousel part in recently review section. 
+4. **react-hook-form** => This packed is used for handling react form on checkout page. 
 
 # Troubleshooting
 If you get an error like _chunkloaderror: loading chunk 344 failed._ the simplest way to resolve it is to clear your browser cache and try again. 
