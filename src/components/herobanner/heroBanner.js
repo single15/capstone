@@ -10,7 +10,7 @@ const HeroBanner = (props) => {
                     style={{ backgroundImage: `url(${props.source})` }}>
                     <div className='text-content'>
                         <div>
-                            <div className='display-m-24-'> {props.label}</div>
+                            <div className='display-m-24-'>{props.label}</div>
                             <p>
                                 {props.description}
                             </p>

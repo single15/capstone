@@ -9,13 +9,9 @@
         padding: 0 44px;
         bottom: 50%;
         transform: translateY(50%);
-        
 
         .display-m-24- {
-            font-size: var(--unnamed-font-size-48);
-            line-height: var(--unnamed-line-spacing-60);
             color: #000;
-
         }
 
         center {
@@ -33,7 +29,7 @@
 
     .text-content {
         display: flex;
-        align-items: center;        
+        align-items: center;
         position: absolute;
         bottom: 92px;
         text-align: center;
@@ -53,10 +49,20 @@
     }
 
     @include desktop {
-       @include desktop-tablet-view(); 
+        @include desktop-tablet-view();
+
+        .display-m-24- {
+            font-size: var(--unnamed-font-size-48);
+            line-height: var(--unnamed-line-spacing-60);
+        }
     }
 
     @include tablet {
-        @include desktop-tablet-view(); 
-     }
+        @include desktop-tablet-view();
+
+        .display-m-24- {
+            font-size: var(--unnamed-font-size-32);
+            line-height: var(--unnamed-line-spacing-45);
+        }
+    }
 }
