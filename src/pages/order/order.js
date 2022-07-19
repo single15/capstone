@@ -1,21 +1,34 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { CREDIT_CARD } from 'pages/checkout/paymentInfo/fields';
 import OrderItems from 'pages/checkout/orderItems/orderItems';
 import HorizontalBar from 'components/horizontalbar/horizontalbar';
 import { ReactComponent as Instagram } from 'assets/instagram-white.svg';
 import { ReactComponent as Facebook } from 'assets/facebook-white.svg';
 import { ReactComponent as Twitter } from 'assets/twitter-white.svg';
+import { emptyCart } from 'reducer/cart';
 import 'pages/order/order.scss';
+import { useNavigate } from 'react-router-dom';
+
+const ORDERID = Math.floor((Math.random() * 100000) + 1);
 
 const OrderSummary = () => {
     const checkout = useSelector(store => store.checkout)
     const { shippingInformation, shippingMethod, paymentInformation } = checkout;
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     let ccNumber = [];
     if (paymentInformation.paymentType === CREDIT_CARD) {
         ccNumber = paymentInformation.creditCardNumber.split(' ');
     }
+
+    useEffect(() => {
+        if(!paymentInformation.paymentType) {
+            navigate('/capstone');
+        }
+        dispatch(emptyCart());
+    }, [dispatch, navigate, paymentInformation])
 
     return (
         <div className='component-container'>
@@ -25,7 +38,7 @@ const OrderSummary = () => {
                     <HorizontalBar />
                 </center>
             </div>
-            <h3>Order Number #orderID</h3>
+            <h3>Order Number #{ORDERID}</h3>
             <div className='aem-Grid aem-Grid--12 order-summary-section'>
                 <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--12 aem-GridColumn--tablet--8'>
                     <div className='aem-Grid aem-Grid--12'>

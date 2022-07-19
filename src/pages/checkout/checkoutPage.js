@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ShippingInfo from 'pages/checkout/shippingInfo/shippingInfo';
 import { useSelector } from 'react-redux';
 import PriceSummary from 'components/pricesummary/pricesummary';
@@ -45,6 +45,12 @@ const CheckoutPage = () => {
         toggleView(data);
     }
 
+    useEffect(() => {
+        if(cartItems.length === 0) {
+            navigate('/capstone');
+        }
+    }, [navigate, cartItems])
+
     return (
         <section className='component-container'>
             <div>
@@ -74,7 +80,7 @@ const CheckoutPage = () => {
                         ) : (
                             <ViewTab serialNumber={3} tabLabel="Payment Information" />
                         )}
-                        {activeView[SHIPPING_METHOD] && activeView[SHIPPING_INFO] && activeView[PAYMENT_INFO] && cartItems.length > 0 &&
+                        {activeView[SHIPPING_METHOD] && activeView[SHIPPING_INFO] && activeView[PAYMENT_INFO] &&
                             <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--12 aem-GridColumn--phone--12">
                                 <OrderItems />
                             </div>
@@ -96,11 +102,9 @@ const CheckoutPage = () => {
                         </div>
                     }
 
-                    {cartItems.length > 0 &&
-                        <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--5 aem-GridColumn--phone--12">
+<div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--5 aem-GridColumn--phone--12">
                             <PriceSummary />
                         </div>
-                    }
 
                     <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--tablet--7 aem-GridColumn--phone--12 place-order-button-section'>
                         <center>

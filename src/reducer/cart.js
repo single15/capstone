@@ -1,8 +1,8 @@
 import { cloneDeep } from 'lodash';
 
 const ADD_TO_CART = 'ADD_TO_CART';
-const UPDATE_CART = 'UPDATE_CART';
 const REMOVE_CART = 'REMOVE_CART';
+const EMPTY_CART = 'EMPTY_CART';
 
 
 const initialState = {
@@ -39,6 +39,8 @@ const cart = (state = initialState, action) => {
             return addItemToCart(state, action);
         case REMOVE_CART:
             return removeItemFromCart(state, action);
+        case EMPTY_CART:
+            return { ...state, cart: [], cartCount: 0 }
         default:
             return state;
     }
@@ -52,12 +54,11 @@ export const addToCart = item => ({
     payload: item
 })
 
-export const updateCart = item => ({
-    type: UPDATE_CART,
-    payload: item
-})
-
 export const removeCart = item => ({
     type: REMOVE_CART,
     payload: item
+})
+
+export const emptyCart = item => ({
+    type: EMPTY_CART
 })
