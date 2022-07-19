@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import { ReactComponent as FilterIcon } from 'assets/sliders.svg'
 import { ReactComponent as ArrowUp } from 'assets/arrow-up.svg'
 import { ReactComponent as ArrowDown } from 'assets/arrow-down.svg'
-import 'components/filter/filter.scss';
-import { useSelector } from "react-redux";
 import FilterModal from "components/filter/modal/filterModal";
+import 'components/filter/filter.scss';
 
 
 
-const FilterMobile = ({ setSelectedItem }) => {
+const FilterMobile = ({ setSelectedItem, filteredProducts }) => {
     const [openModal, toggleModal] = useState(false);
-    const resultCount = useSelector(store => store.products.listCount)
 
     return (
         <section className="filter-section-mb">
@@ -24,7 +22,7 @@ const FilterMobile = ({ setSelectedItem }) => {
                     <span>Sort Products</span>
                 </div>
                 <div className="aem-GridColumn aem-GridColumn--phone--12 aem-GridColumn--tablet--12">
-                    {resultCount} Results
+                    <b>{filteredProducts?.length} Results</b>
                 </div>
             </div>
 

@@ -38,13 +38,15 @@ const FilterDesktop = (props) => {
             <div className="section-header">
                 Filters
             </div>
-            <FilterTag selectedFilter={selectedFilter} clearFilter={() => {
+            <FilterTag selectedFilter={selectedFilter} 
+            setFilterValue={categoryOption.length > 1 && setFilterValue}
+            clearFilter={() => {
                 if(categoryOption.length > 1) {
                     setFilter([]);
                     props.setCategory([]);
                 }
             }} />
-            <FilterBlock blockLabel={"Categories"} options={categoryOption} setFilterValue={setFilterValue} selectedFilter={selectedFilter} />
+            <FilterBlock blockLabel={"Categories"} options={categoryOption} setFilterValue={categoryOption.length > 1 && setFilterValue} selectedFilter={selectedFilter} />
         </div>
     )
 }

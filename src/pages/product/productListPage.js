@@ -121,7 +121,7 @@ export default function ProductListPage() {
                             <>
                                 <div className='component-container'>
                                     <Breadcrumb links={BREADCRUMB_LINKS} />
-                                    <FilterMobile setSelectedItem={() => sortProducts(sortBy === PRICEHIGHTOLOW ? PRICELOWTOHIGHT : PRICEHIGHTOLOW)} />
+                                    <FilterMobile setSelectedItem={() => sortProducts(sortBy === PRICEHIGHTOLOW ? PRICELOWTOHIGHT : PRICEHIGHTOLOW)} filteredProducts={filteredProducts} />
                                     <ProductList products={products} filteredProducts={filteredProducts} />
                                 </div>
                             </>
