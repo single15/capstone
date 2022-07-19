@@ -35,7 +35,8 @@ If you get an error like _chunkloaderror: loading chunk 344 failed._ the simples
 
 
 ### Desktop Report: 
-![image](https://user-images.githubusercontent.com/102651970/179702281-c9e294c6-86e6-441f-b159-ffbd3bd8a2d4.png)
+![image](https://user-images.githubusercontent.com/102651970/179702956-170281fa-1fa6-4ca2-8de2-6eb73fafdccd.png)
+
 
 
 
