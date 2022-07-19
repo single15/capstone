@@ -16,7 +16,7 @@ export const CATEGORIES = [
     {
         id: 'jewelery',
         source: 'https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg',
-        title: 'jewelery',
+        title: 'Jewelery',
         description: 'Lorem ipsum dolor sit amet',
         link: '/product/list/jewelery'
     },
