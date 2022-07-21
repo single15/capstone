@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import 'pages/checkout/orderItems/orderItems.scss';
+import { CLOTHING_CATEGORIES } from 'pages/utils';
 
 const OrderItems = () => {
     const orderItems = useSelector(store => store.checkout.orderItems);
@@ -21,8 +22,12 @@ const OrderItems = () => {
                             </div>
                             <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--tablet--8 aem-GridColumn--phone--8'>
                                 <h4>{item.title}</h4>
-                                <div>Size: {item.size}</div>
-                                <div>Color: {item.color}</div>
+                                {CLOTHING_CATEGORIES.includes(item.category) &&
+                                    <>
+                                        <div>Size: {item.size}</div>
+                                        <div>Color: {item.color}</div>
+                                    </>
+                                }
                                 <div>Quantity: {item.quantity}</div>
                             </div>
                         </div>

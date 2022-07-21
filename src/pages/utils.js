@@ -7,3 +7,5 @@ export const BREADCRUMB_LINKS = {
         }
     }
 }
+
+export const CLOTHING_CATEGORIES = ['men\'s clothing', 'women\'s clothing'];

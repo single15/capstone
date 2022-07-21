@@ -6,7 +6,7 @@ import FilterColorBlock from "components/filter/colorblock/filterColorBlock";
 import Quantity from "components/filter/quantity/quantity";
 import FilterSizeBlock from "components/filter/sizeblock/filterSize";
 import ProductHeader from "components/product/header/productHeader";
-import { BREADCRUMB_LINKS } from "pages/utils";
+import { BREADCRUMB_LINKS, CLOTHING_CATEGORIES } from "pages/utils";
 import Loader from 'components/loader/loader';
 import { ReactComponent as WhishlistIcon } from 'assets/heart.svg';
 import { ReactComponent as RedWhishlistIcon } from 'assets/red-heart.svg';
@@ -17,9 +17,8 @@ import ProductInfo from "components/product/productInfo";
 import { addToCart } from "reducer/cart";
 import { useDispatch, useSelector } from "react-redux";
 import Gallery from "components/product/gallery/gallery";
-import 'pages/product/productDetailPage.scss';
 import { addToWishList } from "reducer/wishlist";
-
+import 'pages/product/productDetailPage.scss';
 
 
 const ButtonSection = ({ itemId, handleClick, disabled, addItemToWishlist }) => {
@@ -31,8 +30,8 @@ const ButtonSection = ({ itemId, handleClick, disabled, addItemToWishlist }) => 
             </div>
             <div className="aem-GridColumn aem-GridColumn--default--7 aem-GridColumn--tablet--12 aem-GridColumn--phone--12">
                 <ButtonLink onClick={addItemToWishlist}>
-                    {wishListItems.includes(itemId) 
-                        ? <><RedWhishlistIcon />&nbsp;&nbsp;Saved</> 
+                    {wishListItems.includes(itemId)
+                        ? <><RedWhishlistIcon />&nbsp;&nbsp;Saved</>
                         : <><WhishlistIcon />&nbsp;&nbsp;Save</>}
                 </ButtonLink>
                 <ButtonLink>
@@ -64,12 +63,15 @@ const ProductDetailPage = () => {
     const addItemToCart = () => {
         const quantityCount = quantity < 1 ? 1 : quantity
         setQuantity(quantityCount)
-
-        if(size && color) {
+        
+        if (size && color && CLOTHING_CATEGORIES.includes(item.category)) {
             dispatch(addToCart({ ...item, quantity: quantityCount, size, color }));
             navigate('/cart');
-        } else {
+        } else if(CLOTHING_CATEGORIES.includes(item.category)) {
             alert(`Please select ${(!size && !color) ? 'Size and Color' : !size ? 'Size ' : 'Color'}.`)
+        } else {
+            dispatch(addToCart({ ...item, quantity: quantityCount, size: '', color: '' }));
+            navigate('/cart');
         }
     }
 
@@ -92,23 +94,33 @@ const ProductDetailPage = () => {
                                     <Breadcrumb links={BREADCRUMB_LINKS} />
                                     <div className="aem-Grid aem-Grid--12">
                                         <Gallery source={item.image} title={item.title} />
-                                    </div>                                    
+                                    </div>
                                     <ProductHeader {...item} />
-                                    <FilterColorBlock selectColor={(value) => setColor(value)} singleSelection={true} />
-                                    <FilterSizeBlock selectSize={(value) => setSize(value)} />
+
+                                    {CLOTHING_CATEGORIES.includes(item.category) &&
+                                        <>
+                                            <FilterColorBlock selectColor={(value) => setColor(value)} singleSelection={true} />
+                                            <FilterSizeBlock selectSize={(value) => setSize(value)} />
+                                        </>
+                                    }
                                     <Quantity quantity={quantity} updateQuantity={value => updateQuantity(value)} />
                                     <ButtonSection itemId={item.id} handleClick={addItemToCart} addItemToWishlist={addItemToWishlist} />
                                 </>
                                 :
                                 <div className="aem-Grid aem-Grid--12">
                                     <div className="aem-GridColumn aem-GridColumn--default--7">
-                                       <Gallery source={item.image} title={item.title} />
+                                        <Gallery source={item.image} title={item.title} />
                                     </div>
                                     <div className="aem-GridColumn aem-GridColumn--default--5">
                                         <Breadcrumb links={BREADCRUMB_LINKS} />
                                         <ProductHeader {...item} />
-                                        <FilterColorBlock selectColor={(value) => setColor(value)} singleSelection={true} />
-                                        <FilterSizeBlock selectSize={(value) => setSize(value)} />
+                                        {CLOTHING_CATEGORIES.includes(item.category) &&
+                                            <>
+                                                <FilterColorBlock selectColor={(value) => setColor(value)} singleSelection={true} />
+                                                <FilterSizeBlock selectSize={(value) => setSize(value)} />
+                                            </>
+                                        }
+
                                         <Quantity quantity={quantity} updateQuantity={value => updateQuantity(value)} />
                                         <ButtonSection itemId={item.id} handleClick={addItemToCart} addItemToWishlist={addItemToWishlist} />
                                     </div>

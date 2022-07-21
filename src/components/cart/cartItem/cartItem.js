@@ -11,6 +11,7 @@ import { addToCart, removeCart } from "reducer/cart";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWishList } from "reducer/wishlist";
 import 'components/cart/cartItem/cartItem.scss';
+import { CLOTHING_CATEGORIES } from "pages/utils";
 
 const SelectedFeature = ({ label, value }) => (
     <div>
@@ -20,25 +21,24 @@ const SelectedFeature = ({ label, value }) => (
 
 const getPrices = (quantity, price) => price * quantity;
 
-
 const ActionMenus = ({ id, removeCart, addItemToWishlist }) => {
     const wishListItems = useSelector((store) => store.wishlist.list)
-    
-    return(
-    <>
-        <div>
-            <NavLink to={`/product/${id}`}>
-                <PencilIcon />&nbsp;&nbsp;Edit item
-            </NavLink>
-        </div>
-        <div onClick={removeCart}><TrashIcon /> &nbsp;&nbsp;Remove</div>
-        <div onClick={addItemToWishlist}>
-            {wishListItems.includes(id) 
-                ? <><RedWhishlistIcon />&nbsp;&nbsp;Saved</>
-                : <><WhishlistIcon />&nbsp;&nbsp;Save for later</>
-            }
-        </div>
-    </>
+
+    return (
+        <>
+            <div>
+                <NavLink to={`/product/${id}`}>
+                    <PencilIcon />&nbsp;&nbsp;Edit item
+                </NavLink>
+            </div>
+            <div onClick={removeCart}><TrashIcon /> &nbsp;&nbsp;Remove</div>
+            <div onClick={addItemToWishlist}>
+                {wishListItems.includes(id)
+                    ? <><RedWhishlistIcon />&nbsp;&nbsp;Saved</>
+                    : <><WhishlistIcon />&nbsp;&nbsp;Save for later</>
+                }
+            </div>
+        </>
 
     )
 }
@@ -70,8 +70,12 @@ const CartItem = ({ item }) => {
                     <div className="aem-Grid aem-Grid--12">
                         <div className="aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--12">
                             <b>{item.title}</b>
-                            <SelectedFeature label="Size" value={item.size} />
-                            <SelectedFeature label="Color" value={item.color} />
+                            {CLOTHING_CATEGORIES.includes(item.category) &&
+                                <>
+                                    <SelectedFeature label="Size" value={item.size} />
+                                    <SelectedFeature label="Color" value={item.color} />
+                                </>
+                            }
                             <div>$ {getPrices(item.quantity, item.price).toFixed(2)}</div>
                         </div>
                         <div className="aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--tablet--12 aem-GridColumn--phone--12">
@@ -90,7 +94,7 @@ const CartItem = ({ item }) => {
                                             <ActionMenus id={item.id} removeCart={() => dispatch(removeCart(item))} addItemToWishlist={addItemToWishlist} />
                                         </div>}
                                     </div>
-                                    )
+                                )
                                     : <div className="action-section">
                                         <ActionMenus id={item.id} removeCart={() => dispatch(removeCart(item))} addItemToWishlist={addItemToWishlist} />
                                     </div>}
