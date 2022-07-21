@@ -8,7 +8,7 @@ const OrderItems = () => {
     return (
         <section className='order-items-section'>
             <b>
-                {itemLength} {itemLength > 0 ? `items` : `item`} in your order
+                {itemLength} {itemLength > 1 ? `items` : `item`} in your order
             </b>
             <div className='aem-Grid aem-Grid--12'>
                 {orderItems.map((item) => (
