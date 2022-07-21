@@ -3,15 +3,15 @@ import { useSelector } from 'react-redux';
 import 'pages/checkout/orderItems/orderItems.scss';
 
 const OrderItems = () => {
-    const cartItems = useSelector(store => store.cart.cart);
-    const itemLength = cartItems.length;
+    const orderItems = useSelector(store => store.checkout.orderItems);
+    const itemLength = orderItems.length;
     return (
         <section className='order-items-section'>
             <b>
                 {itemLength} {itemLength > 0 ? `items` : `item`} in your order
             </b>
             <div className='aem-Grid aem-Grid--12'>
-                {cartItems.map((item) => (
+                {orderItems.map((item) => (
                     <div key={item.id} className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--phone--12 aem-GridColumn--tablet--12 order-item">
                         <div className='aem-Grid aem-Grid--12'>
                             <div className='aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--4 aem-GridColumn--phone--4'>

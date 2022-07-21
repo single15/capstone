@@ -49,10 +49,14 @@ const CheckoutPage = () => {
     }
 
     useEffect(() => {
-        if(cartItems.length === 0) {
+        if (cartItems.length === 0) {
             navigate('/capstone');
         }
     }, [navigate, cartItems])
+
+    const placeYourOrder = () => {
+        navigate('/ordersummary')
+    }
 
     return (
         <section className='component-container'>
@@ -78,7 +82,7 @@ const CheckoutPage = () => {
                         )}
                         {activeView[PAYMENT_INFO] ? (
                             <div className='checkout-tab'>
-                                <PaymentInfo clickContinue={() => handleView(REVIEW_ORDER)} clickEditMode={() => toggleView({...activeView, [REVIEW_ORDER]: false})} />
+                                <PaymentInfo clickContinue={() => handleView(REVIEW_ORDER)} clickEditMode={() => toggleView({ ...activeView, [REVIEW_ORDER]: false })} />
                             </div>
                         ) : (
                             <ViewTab serialNumber={3} tabLabel="Payment Information" />
@@ -105,13 +109,13 @@ const CheckoutPage = () => {
                         </div>
                     }
 
-<div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--5 aem-GridColumn--phone--12">
-                            <PriceSummary />
-                        </div>
+                    <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--5 aem-GridColumn--phone--12">
+                        <PriceSummary />
+                    </div>
 
                     <div className='aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--tablet--7 aem-GridColumn--phone--12 place-order-button-section'>
                         <center>
-                            <Button type="primary" width={280} onClick={() => navigate('/ordersummary')} disabled={disabled || !activeView[PAYMENT_INFO]}>PLACE ORDER</Button>
+                            <Button type="primary" width={280} onClick={placeYourOrder} disabled={disabled || !activeView[PAYMENT_INFO]}>PLACE ORDER</Button>
                         </center>
                         <div>
                             By Clicking confirm order you agree to our&nbsp;&nbsp;
