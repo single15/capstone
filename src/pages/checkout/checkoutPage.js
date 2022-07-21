@@ -14,6 +14,7 @@ import 'pages/checkout/checkoutPage.scss';
 const SHIPPING_INFO = 'SHIPPING_INFO';
 const SHIPPING_METHOD = 'SHIPPING_METHOD';
 const PAYMENT_INFO = 'PAYMENT_INFO';
+const REVIEW_ORDER = 'REVIEW_ORDER';
 
 const ViewTab = ({ serialNumber, tabLabel }) => (
     <div className='checkout-tab inactive'>
@@ -30,7 +31,9 @@ const CheckoutPage = () => {
     const [activeView, toggleView] = useState({
         [SHIPPING_INFO]: true,
         [SHIPPING_METHOD]: false,
-        [PAYMENT_INFO]: false
+        [PAYMENT_INFO]: false,
+        [REVIEW_ORDER]: false
+
     })
     const cartItems = useSelector(store => store.cart.cart);
     const checkoutData = useSelector(store => store.checkout)
@@ -75,12 +78,12 @@ const CheckoutPage = () => {
                         )}
                         {activeView[PAYMENT_INFO] ? (
                             <div className='checkout-tab'>
-                                <PaymentInfo clickEditMode={() => handleView(SHIPPING_METHOD)} />
+                                <PaymentInfo clickContinue={() => handleView(REVIEW_ORDER)} clickEditMode={() => toggleView({...activeView, [REVIEW_ORDER]: false})} />
                             </div>
                         ) : (
                             <ViewTab serialNumber={3} tabLabel="Payment Information" />
                         )}
-                        {activeView[SHIPPING_METHOD] && activeView[SHIPPING_INFO] && activeView[PAYMENT_INFO] &&
+                        {activeView[REVIEW_ORDER] &&
                             <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn--tablet--12 aem-GridColumn--phone--12">
                                 <OrderItems />
                             </div>

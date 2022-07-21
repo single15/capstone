@@ -8,6 +8,7 @@ import 'pages/checkout/paymentInfo/paymentInfo.scss';
 import CreditCardForm from './creaditCardForm';
 import { useDispatch } from 'react-redux';
 import { updatePaymentInfo } from 'reducer/checkout';
+import Media from 'react-media';
 
 
 const ReadonlySection = ({ data, toggleEditMode }) => {
@@ -53,6 +54,7 @@ const PaymentInfo = (props) => {
         const method = PAYMENT_TYPES_FIELDS.filter(field => field.id === data.paymentType)[0];
         setFormData(data);
         toggleEditMode(false);
+        props.clickContinue();
         dispatch(updatePaymentInfo({ ...data, label: method.label }));
     }
 
@@ -85,7 +87,17 @@ const PaymentInfo = (props) => {
                         ))}
                     </section>
                     <center>
-                        <Button type='secondary' width={180}>CONTINUE</Button>
+                        <Media query="(max-width: 768px)">
+                            {matched => (
+                                <>
+                                    {matched ?
+                                        <Button type='secondary' width={180}>CONTINUE</Button>
+                                        :
+                                        <Button type='secondary' width={280}>CONTINUE TO REVIEW ORDER</Button>
+                                    }
+                                </>
+                            )}
+                        </Media>
                     </center>
                 </form>
             </div>

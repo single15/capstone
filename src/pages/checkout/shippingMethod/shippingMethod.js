@@ -7,6 +7,7 @@ import { ReactComponent as EditIcon } from 'assets/edit-blue.svg';
 import 'pages/checkout/shippingMethod/shippingMethod.scss';
 import { updateShippingMethod } from 'reducer/checkout';
 import { useDispatch } from 'react-redux';
+import Media from 'react-media';
 
 
 const ReadonlySection = ({ data, toggleEditMode }) => {
@@ -48,34 +49,44 @@ const ShippingMethod = (props) => {
     }
 
     return (
-        editMode ? 
-        <div className='border-bottom'>
-            <h4>2. Shipping Method</h4>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <section>
-                    {SHIPPING_METHOD_FIELDS.map((field) => (
-                        <Radio key={field.id} 
-                            label={field.label}
-                            description={field.description}
-                            id={field.id}
-                            {...register(field.name, {
-                                required: {
-                                    value: true,
-                                    message: 'This is a required field.'
-                                }
-                            })}
-                        />
-                    ))}
-                </section>
-                <center>
-                    <Button type='secondary' width={180}>CONTINUE</Button>
-                </center>
-            </form>
-        </div>
-        : <ReadonlySection data={formData} toggleEditMode={() => {
-            toggleEditMode(!editMode);
-            props.clickEditMode();
-        }} />
+        editMode ?
+            <div className='border-bottom'>
+                <h4>2. Shipping Method</h4>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <section>
+                        {SHIPPING_METHOD_FIELDS.map((field) => (
+                            <Radio key={field.id}
+                                label={field.label}
+                                description={field.description}
+                                id={field.id}
+                                {...register(field.name, {
+                                    required: {
+                                        value: true,
+                                        message: 'This is a required field.'
+                                    }
+                                })}
+                            />
+                        ))}
+                    </section>
+                    <center>
+                        <Media query="(max-width: 768px)">
+                            {matched => (
+                                <>
+                                    {matched ?
+                                        <Button type='secondary' width={180}>CONTINUE</Button>
+                                        :
+                                        <Button type='secondary' width={280}>CONTINUE TO PAYMENT</Button>
+                                    }
+                                </>
+                            )}
+                        </Media>
+                    </center>
+                </form>
+            </div>
+            : <ReadonlySection data={formData} toggleEditMode={() => {
+                toggleEditMode(!editMode);
+                props.clickEditMode();
+            }} />
     )
 }
 

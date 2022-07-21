@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { updateShippingInfo } from 'reducer/checkout';
 import BasicSelect from 'components/basicSelect/basicSelect';
 import 'pages/checkout/shippingInfo/shippingInfo.scss';
+import Media from 'react-media';
 
 
 const ReadonlySection = ({ data, toggleEditMode }) => (
@@ -179,7 +180,17 @@ const ShippingInfo = (props) => {
                         )}
                     </section>
                     <center>
-                        <Button type='secondary' width={180}>CONTINUE</Button>
+                        <Media query="(max-width: 768px)">
+                            {matched=> (
+                                <>
+                                    {matched ? 
+                                        <Button type='secondary' width={180}>CONTINUE</Button>
+                                    : 
+                                        <Button type='secondary' width={280}>CONTINUE TO SHIPPING METHOD</Button>
+                                    }
+                                </>
+                            )}
+                        </Media>                        
                     </center>
                 </form>
             </div>
