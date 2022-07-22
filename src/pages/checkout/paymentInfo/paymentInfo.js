@@ -62,8 +62,6 @@ const PaymentInfo = (props) => {
         setSelectedType(id)
     }
 
-    console.log(errors);
-
     return (
         editMode ?
             <div className='border-bottom'>
