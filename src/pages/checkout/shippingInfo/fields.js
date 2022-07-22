@@ -56,10 +56,12 @@ export const SHIPPING_INFORMATION_FIELDS = [
     },
     {
         label: 'ZIP',
-        type: 'text',
+        type: 'number',
         name: 'zip',
         placeholder: 'Zip code',
         isRequired: true,
-        size: 2
+        size: 2,
+        max: 6,
+        min: 5
     }
 ]

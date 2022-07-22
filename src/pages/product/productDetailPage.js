@@ -22,7 +22,7 @@ import 'pages/product/productDetailPage.scss';
 
 
 const ButtonSection = ({ itemId, handleClick, disabled, addItemToWishlist }) => {
-    const wishListItems = useSelector((store) => store.wishlist.list)
+    const wishListItems = useSelector((store) => store.wishlist.itemsId)
     return (
         <div className="aem-Grid aem-Grid--12 button-section">
             <div className="aem-GridColumn aem-GridColumn--default--7 aem-GridColumn--tablet--12 aem-GridColumn--phone--12">
@@ -80,7 +80,7 @@ const ProductDetailPage = () => {
     }
 
     const addItemToWishlist = () => {
-        dispatch(addToWishList(item.id));
+        dispatch(addToWishList(item));
     }
 
     return (

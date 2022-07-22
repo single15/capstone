@@ -9,6 +9,7 @@ const ProductListPage = React.lazy(() => import("pages/product/productListPage")
 const CartPage = React.lazy(() => import("pages/cart/cartPage"));
 const CheckoutPage = React.lazy(() => import("pages/checkout/checkoutPage"));
 const OrderSummary = React.lazy(() => import("pages/order/order"));
+const Whishlist = React.lazy(() => import("pages/whishlist/whishlistPage"));
 
 
 const Router = () => (
@@ -60,7 +61,17 @@ const Router = () => (
             </div>
           </React.Suspense>
         } />
+
+        <Route path="whishlist" element={
+          <React.Suspense fallback={<Loader />}>
+            <div className="container">
+              <Whishlist />
+            </div>
+          </React.Suspense>
+        } />
       </Routes>
+
+
     </App>
   </BrowserRouter>
 );

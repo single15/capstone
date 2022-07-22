@@ -3,19 +3,23 @@ import { cloneDeep } from "lodash";
 const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST';
 
 const initialState = {
-    list: []
+    list: [],
+    itemsId: []
 };
 
 
 const addItemToWishlist = (state, action) => {
     let items = cloneDeep(state.list);
-    const itemInWishlist = items.find(item => item === action.payload);
+    let itemsId = cloneDeep(state.itemsId);
+    const itemInWishlist = itemsId.find(item => item === action.payload.id);
     if (!itemInWishlist) {
         items = [...items, action.payload];
+        itemsId = [...itemsId, action.payload.id];
     } else {
-        items = items.filter((item)=> item !== action.payload);
+        items = items.filter((item)=> item.id !== action.payload.id);
+        itemsId = itemsId.filter((id)=> id !== action.payload.id);
     }
-    return { ...state, list: items };
+    return { ...state, list: items, itemsId: itemsId };
   }
 
 const wishlist = (state = initialState, action) => {
@@ -30,7 +34,7 @@ const wishlist = (state = initialState, action) => {
 
 export default wishlist;
 
-export const addToWishList = id => ({
+export const addToWishList = item => ({
     type: ADD_TO_WISHLIST,
-    payload: id
+    payload: item
 })

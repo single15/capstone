@@ -47,7 +47,7 @@ const PaymentInfo = (props) => {
     const [editMode, toggleEditMode] = useState(true);
     const [formData, setFormData] = useState({});
     const [selectedType, setSelectedType] = useState('');
-    const { register, handleSubmit, control } = useForm({ shouldUnregister: false });
+    const { register, handleSubmit, control, formState: { errors} } = useForm({ shouldUnregister: false });
     const dispatch = useDispatch();
 
     const onSubmit = (data) => {
@@ -61,6 +61,8 @@ const PaymentInfo = (props) => {
     const handleChange = (id) => {
         setSelectedType(id)
     }
+
+    console.log(errors);
 
     return (
         editMode ?
@@ -81,10 +83,15 @@ const PaymentInfo = (props) => {
                                 })}
                             >
                                 {selectedType === CREDIT_CARD && field.id === CREDIT_CARD ? (
-                                    <CreditCardForm register={register} control={control} />
+                                    <CreditCardForm register={register} control={control} errors={errors} />
                                 ) : null}
                             </Radio>
                         ))}
+                        {errors.paymentType?.message &&
+                            <div className='is-danger'>
+                                This is a required field.
+                            </div>
+                        }
                     </section>
                     <center>
                         <Media query="(max-width: 768px)">

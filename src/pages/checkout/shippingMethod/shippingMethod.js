@@ -37,7 +37,7 @@ const ReadonlySection = ({ data, toggleEditMode }) => {
 const ShippingMethod = (props) => {
     const [editMode, toggleEditMode] = useState(true);
     const [formData, setFormData] = useState({});
-    const { register, handleSubmit } = useForm({ shouldUnregister: false });
+    const { register, handleSubmit, formState: { errors } } = useForm({ shouldUnregister: false });
     const dispatch = useDispatch();
 
     const onSubmit = (data) => {
@@ -55,18 +55,26 @@ const ShippingMethod = (props) => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <section>
                         {SHIPPING_METHOD_FIELDS.map((field) => (
-                            <Radio key={field.id}
-                                label={field.label}
-                                description={field.description}
-                                id={field.id}
-                                {...register(field.name, {
-                                    required: {
-                                        value: true,
-                                        message: 'This is a required field.'
-                                    }
-                                })}
-                            />
+                            <>
+                                <Radio key={field.id}
+                                    label={field.label}
+                                    description={field.description}
+                                    id={field.id}
+                                    {...register(field.name, {
+                                        required: {
+                                            value: true,
+                                            message: 'This is a required field.'
+                                        }
+                                    })}
+                                />
+
+                            </>
                         ))}
+                        {errors.shippingMethod?.message &&
+                            <div className='is-danger'>
+                                This is a required field.
+                            </div>
+                        }
                     </section>
                     <center>
                         <Media query="(max-width: 768px)">

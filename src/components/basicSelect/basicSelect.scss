@@ -30,6 +30,16 @@
         background-repeat: no-repeat;
         background-position-y: center;
         background-position-x: 98%;
+
+        &.is-danger {
+            border-color: #EC5B62;
+        }
+    }
+
+    div.is-danger {
+        margin-top: 4px;
+        color: #EC5B62;
+        font-size: 12px;
     }
 
     @include desktop {

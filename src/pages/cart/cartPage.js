@@ -32,7 +32,7 @@ const CartPage = () => {
                     :
                     <div className="aem-GridColumn aem-GridColumn--default--12 aem-GridColumn--tablet--12 aem-GridColumn--phone--12 empty-cart">
                         <h2>Your Venia Cart is empty.</h2>
-                        Check your Saved for later items below or <NavLink to="/capstone">continue shopping</NavLink>.
+                        Check your Saved for later items below or <NavLink to="/whishlist">continue shopping</NavLink>.
                     </div>
 
                 }

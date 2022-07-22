@@ -62,7 +62,7 @@ export default function HomePage() {
                                         <div>Signature Legging</div>
                                     </b>
                                 </div>
-                                <span>Lorem Ipsum Dolor Tempor</span>
+                                <span>Browse & buy from a wide range of women's, men's clothing</span>
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     labore dolore magna lorem ipsum dolor sit dolore magna.
@@ -82,7 +82,7 @@ export default function HomePage() {
                         <span>Conquer your</span><br />
                         <span>next adventure</span>
                     </h1>
-                    <p>Lorem Ipsum Dolor Tempor</p>
+                    <p>Shop for Home Appliances, Laptops & Accessories</p>
                     <Button type="secondary" onClick={() => navigate('/product/list/electronics')}>SHOP DEVICES</Button>
                     <div className='marker-section'>
                         <MapPinIcon />

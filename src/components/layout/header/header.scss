@@ -21,7 +21,7 @@
                     text-align: center;
                 }
 
-                &:nth-child(3) {
+                &.shopping-bag {
                     text-align: right;
                 }
             }
@@ -98,7 +98,7 @@
                     }
                 }
 
-                &:nth-child(3) {
+                &.shopping-bag {
                     display: flex;
                     justify-content: flex-end;
 

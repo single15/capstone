@@ -42,7 +42,7 @@ const ShippingInfo = (props) => {
     const [formData, setFormData] = useState({});
     const [countries, setCountries] = useState([]);
     const [states, setStates] = useState([]);
-    const { register, handleSubmit, control } = useForm({ shouldUnregister: false });
+    const { register, handleSubmit, control, formState: { errors } } = useForm({ shouldUnregister: false });
 
     const dispatch = useDispatch();
 
@@ -94,6 +94,7 @@ const ShippingInfo = (props) => {
                             <BasicInput
                                 label="Email"
                                 type="text"
+                                error={errors.email?.message ? true : false}
                                 placeholder="Enter Email"
                                 isRequired={true}
                                 {...register('email', {
@@ -110,16 +111,22 @@ const ShippingInfo = (props) => {
                                 <Controller
                                     control={control}
                                     name="phoneNumber"
+                                    rules={{ required: {
+                                        value: true,
+                                        message: "This is a required field."
+                                    } }}
                                     render={({ field: { onChange, name, value } }) => (
                                         <NumberFormat
                                             format="(###) ###-####"
                                             name={name}
                                             value={value}
+                                            className={errors.phoneNumber?.message && 'is-danger'}
                                             onChange={onChange}
                                             placeholder="(123) 123-1234"
                                         />
                                     )}
                                 />
+                                {errors.phoneNumber?.message && <div className='is-danger'>This is a required field.</div>}
                             </div>
                         </div>
                     </div>
@@ -134,6 +141,7 @@ const ShippingInfo = (props) => {
                                             name={field.name}
                                             id={field.id}
                                             isRequired={field.isRequired}
+                                            error={errors[field.name]?.message ? true : false}
                                             options={countries}
                                             {...register(field.name, {
                                                 required: {
@@ -152,6 +160,7 @@ const ShippingInfo = (props) => {
                                             name={field.name}
                                             id={field.id}
                                             isRequired={field.isRequired}
+                                            error={errors[field.name]?.message ? true : false}
                                             options={states}
                                             disabled={states.length === 0}
                                             {...register(field.name, {
@@ -169,6 +178,7 @@ const ShippingInfo = (props) => {
                                             type={field.type}
                                             placeholder={field.placeholder}
                                             isRequired={field.isRequired}
+                                            error={errors[field.name]?.message ? true : false}
                                             {...register(field.name, {
                                                 required: {
                                                     value: field.isRequired,

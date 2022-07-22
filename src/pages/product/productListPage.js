@@ -33,8 +33,6 @@ const getCategory = (category) => {
             return 'women\'s clothing';
         case 'men':
             return 'men\'s clothing';
-        case 'jewelery': 
-            return 'jewelery';
         case 'shop': 
             return '';
         default:

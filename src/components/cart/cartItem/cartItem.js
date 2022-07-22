@@ -22,7 +22,7 @@ const SelectedFeature = ({ label, value }) => (
 const getPrices = (quantity, price) => price * quantity;
 
 const ActionMenus = ({ id, removeCart, addItemToWishlist }) => {
-    const wishListItems = useSelector((store) => store.wishlist.list)
+    const wishListItems = useSelector((store) => store.wishlist.itemsId)
 
     return (
         <>
@@ -55,7 +55,7 @@ const CartItem = ({ item }) => {
     }
 
     const addItemToWishlist = () => {
-        dispatch(addToWishList(item.id));
+        dispatch(addToWishList(item));
     }
 
     return (

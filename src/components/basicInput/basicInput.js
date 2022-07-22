@@ -15,6 +15,7 @@ const BasicInput = forwardRef(({label, type, error, isRequired, ...rest}, ref) =
                 className={`input ${error && 'is-danger'}`}
                 {...rest}
             />
+            {error && isRequired && <div className='is-danger'>This is a required field.</div>}
         </div>
     );
 })

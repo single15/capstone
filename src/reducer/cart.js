@@ -14,6 +14,7 @@ const initialState = {
 const addItemToCart = (state, action) => {
     let items = cloneDeep(state.cart);
     const itemInCart = items.find(item => item.id === action.payload.id);
+    let cartCount = 0;
     if (!itemInCart) {
         items = [...items, action.payload];
     } else {
@@ -23,7 +24,10 @@ const addItemToCart = (state, action) => {
             }
         });
     }
-    return { ...state, cart: items, cartCount: items.length };
+    items.forEach(item => {
+        cartCount = cartCount + item.quantity;
+    })
+    return { ...state, cart: items, cartCount: cartCount };
 }
 
 const removeItemFromCart = (state, action) => {

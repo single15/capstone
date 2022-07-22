@@ -2,6 +2,7 @@
 
 .venia-form-input {
     margin-bottom: var(--unnamed-pixel-20);
+    min-height: 84px;
 
     .label-section {
         display: flex;
@@ -31,6 +32,16 @@
         &::placeholder {
             color: #ccc;
         }
+
+        &.is-danger {
+            border-color: #EC5B62;
+        }
+    }
+
+    .is-danger {
+        margin-top: 4px;
+        color: #EC5B62;
+        font-size: 12px;
     }
 
     @include desktop {
