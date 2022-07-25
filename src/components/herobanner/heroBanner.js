@@ -15,7 +15,7 @@ const HeroBanner = (props) => {
                                 {props.description}
                             </p>
                             <center>
-                                <Button type="primary" width={180} onClick={props.navigateToShop}>SHOP NOW</Button>
+                                <Button type="primary" width={180} onClick={props.shopNow}>SHOP NOW</Button>
                             </center>
                         </div>
                     </div>
