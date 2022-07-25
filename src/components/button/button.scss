@@ -48,6 +48,8 @@
         }
 
         &:disabled {
+            cursor: not-allowed;
+            color: var(--white);
             background-color: var(--gray-l2);
             border-color: var(--gray-l2);
         }
