@@ -8,7 +8,7 @@ const Breadcrumb = (props) => {
     return (
         <>
             <NavLink to="/capstone">
-                <span>{props.isChild ? ` / ${links.menuLabel}` : `${links.menuLabel}`}</span>
+                <b>{props.isChild ? ` / ${links.menuLabel}` : `${links.menuLabel}`}</b>
             </NavLink>            
             {links.childMenu && <Breadcrumb links={links.childMenu} isChild={true} />}
         </>

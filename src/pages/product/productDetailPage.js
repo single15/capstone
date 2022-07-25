@@ -6,7 +6,7 @@ import FilterColorBlock from "components/filter/colorblock/filterColorBlock";
 import Quantity from "components/filter/quantity/quantity";
 import FilterSizeBlock from "components/filter/sizeblock/filterSize";
 import ProductHeader from "components/product/header/productHeader";
-import { BREADCRUMB_LINKS, CLOTHING_CATEGORIES } from "pages/utils";
+import { CLOTHING_CATEGORIES, getBredcrumb } from "pages/utils";
 import Loader from 'components/loader/loader';
 import { ReactComponent as WhishlistIcon } from 'assets/heart.svg';
 import { ReactComponent as RedWhishlistIcon } from 'assets/red-heart.svg';
@@ -91,7 +91,7 @@ const ProductDetailPage = () => {
                         <>
                             {matche ?
                                 <>
-                                    <Breadcrumb links={BREADCRUMB_LINKS} />
+                                    <Breadcrumb links={getBredcrumb(item.category)} />
                                     <div className="aem-Grid aem-Grid--12">
                                         <Gallery source={item.image} title={item.title} />
                                     </div>
@@ -112,7 +112,7 @@ const ProductDetailPage = () => {
                                         <Gallery source={item.image} title={item.title} />
                                     </div>
                                     <div className="aem-GridColumn aem-GridColumn--default--5">
-                                        <Breadcrumb links={BREADCRUMB_LINKS} />
+                                        <Breadcrumb links={getBredcrumb(item.category)} />
                                         <ProductHeader {...item} />
                                         {CLOTHING_CATEGORIES.includes(item.category) &&
                                             <>

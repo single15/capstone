@@ -5,7 +5,7 @@ import Banner from 'components/banner/banner';
 import Breadcrumb from 'components/breadcrumb/breadcrumb';
 import FilterMobile from 'components/filter/filterMobile';
 import ProductList from 'components/product/list';
-import { BREADCRUMB_LINKS } from 'pages/utils';
+import { getBredcrumb } from 'pages/utils';
 import { updateProducts } from 'reducer/product';
 import FilterDesktop from 'components/filter/filterDesktop';
 import Dropdown from 'components/dropdown/dropdown';
@@ -33,12 +33,14 @@ const getCategory = (category) => {
             return 'women\'s clothing';
         case 'men':
             return 'men\'s clothing';
-        case 'shop': 
+        case 'shop':
             return '';
         default:
             return category;
     }
 }
+
+
 
 const sortByEntity = (value, products) => {
     let items = cloneDeep(products);
@@ -107,8 +109,8 @@ export default function ProductListPage() {
                     {['men', 'women'].includes(category) ? <>
                         <span>{`${category[0].toUpperCase()}${category.slice(1)}'s`}</span><br />
                         <span>Outwear</span>
-                    </> : 
-                    <span>{`${category[0].toUpperCase()}${category.slice(1)}`}</span>
+                    </> :
+                        <span>{`${category[0].toUpperCase()}${category.slice(1)}`}</span>
                     }
                 </h2>
             </Banner>
@@ -118,7 +120,7 @@ export default function ProductListPage() {
                         {matche ?
                             <>
                                 <div className='component-container'>
-                                    <Breadcrumb links={BREADCRUMB_LINKS} />
+                                    <Breadcrumb links={getBredcrumb(category)} />
                                     <FilterMobile setSelectedItem={() => sortProducts(sortBy === PRICEHIGHTOLOW ? PRICELOWTOHIGHT : PRICEHIGHTOLOW)} filteredProducts={filteredProducts} />
                                     <ProductList products={products} filteredProducts={filteredProducts} />
                                 </div>
@@ -127,7 +129,7 @@ export default function ProductListPage() {
                             <div className='aem-Grid aem-Grid--12'>
                                 <div className='aem-Grid aem-Grid--12 sort-section'>
                                     <div className='aem-GridColumn aem-GridColumn--default--3'>
-                                        <Breadcrumb links={BREADCRUMB_LINKS} />
+                                        <Breadcrumb links={getBredcrumb(category)} />
                                     </div>
                                     <div className='aem-Grid aem-Grid--12 aem-GridColumn aem-GridColumn--default--9'>
                                         <div className='aem-GridColumn aem-GridColumn--default--6'>
