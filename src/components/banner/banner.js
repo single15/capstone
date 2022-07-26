@@ -5,7 +5,7 @@ import 'components/banner/banner.scss';
 const Banner = ({ children, label, posterPosition = 'right' }) => {
 
     return (
-        <Media query={'(max-width: 1023px)'}>
+        <Media query={'(max-width: 1200px)'}>
             {matches => (
                 <>
                     {matches ? (

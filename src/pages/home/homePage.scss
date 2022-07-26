@@ -89,7 +89,7 @@
     }
 
     @include tablet {
-        @include desktop-tablet-view();
+        @include desktop-tablet-view();        
     }
 
     .home-banner-section,

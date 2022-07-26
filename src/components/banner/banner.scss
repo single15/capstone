@@ -1,31 +1,6 @@
 @import 'style/mixins';
 
-.home-banner-section-mb {
-    .home-banner-content {
-        background-color: var(--unnamed-color-1B252C);
-        color: var(--white);
-        width: 90%;
-        margin: -60px auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 50px;
-
-        h2 {
-            padding-bottom: var(--unnamed-pixel-24);
-            border-bottom: var(--unnamed-pixel-8) solid var(--primary-m1);
-        }
-    }
-
-    .home-banner-image {
-        background-image: url("https://jnz3dtiuj77ca.dummycachetest.com/media/catalog/category/woman-wearing-orange-dress-3503488_sm.jpg?auto=webp&format=pjpg&quality=85");
-        background-repeat: no-repeat;
-        background-size: 100%;
-        height: 220px;
-    }
-}
-
-@include desktop {
+@mixin desktop-tablet-view {
     .home-banner-section {
         display: grid;
         gap: 0;
@@ -84,4 +59,33 @@
             background-image: url("https://jnz3dtiuj77ca.dummycachetest.com/media/catalog/category/woman-wearing-orange-dress-3503488_sm.jpg?auto=webp&format=pjpg&quality=85");
         }
     }
+}
+
+.home-banner-section-mb {
+    .home-banner-content {
+        background-color: var(--unnamed-color-1B252C);
+        color: var(--white);
+        width: 90%;
+        margin: -60px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+
+        h2 {
+            padding-bottom: var(--unnamed-pixel-24);
+            border-bottom: var(--unnamed-pixel-8) solid var(--primary-m1);
+        }
+    }
+
+    .home-banner-image {
+        background-image: url("https://jnz3dtiuj77ca.dummycachetest.com/media/catalog/category/woman-wearing-orange-dress-3503488_sm.jpg?auto=webp&format=pjpg&quality=85");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        height: 220px;
+    }
+}
+
+@include desktop {
+    @include desktop-tablet-view;
 }
