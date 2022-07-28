@@ -114,46 +114,48 @@ export default function ProductListPage() {
                     }
                 </h2>
             </Banner>
-            <Media query="(max-width: 1023px)">
-                {matche => (
-                    <>
-                        {matche ?
-                            <>
-                                <div className='component-container'>
-                                    <Breadcrumb links={getBredcrumb(category)} />
-                                    <FilterMobile setSelectedItem={() => sortProducts(sortBy === PRICEHIGHTOLOW ? PRICELOWTOHIGHT : PRICEHIGHTOLOW)} filteredProducts={filteredProducts} />
-                                    <ProductList products={products} filteredProducts={filteredProducts} />
-                                </div>
-                            </>
-                            :
-                            <div className='aem-Grid aem-Grid--12'>
-                                <div className='aem-Grid aem-Grid--12 sort-section'>
-                                    <div className='aem-GridColumn aem-GridColumn--default--3'>
+            <section className='container'>
+                <Media query="(max-width: 1023px)">
+                    {matche => (
+                        <>
+                            {matche ?
+                                <>
+                                    <div className='component-container'>
                                         <Breadcrumb links={getBredcrumb(category)} />
-                                    </div>
-                                    <div className='aem-Grid aem-Grid--12 aem-GridColumn aem-GridColumn--default--9'>
-                                        <div className='aem-GridColumn aem-GridColumn--default--6'>
-                                            <b>{filteredProducts.length} Results</b>
-                                        </div>
-                                        <div className='aem-GridColumn aem-GridColumn--default--6 sorting-filter'>
-                                            <Dropdown options={SORT_OPTION} selectedItem={sortBy} setSelectedItem={(value) => sortProducts(value)} />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className='aem-Grid aem-Grid--12'>
-                                    <div className='aem-GridColumn aem-GridColumn--default--3'>
-                                        <FilterDesktop setCategory={setCategory} />
-                                    </div>
-                                    <div className='aem-GridColumn aem-GridColumn--default--9'>
+                                        <FilterMobile setSelectedItem={() => sortProducts(sortBy === PRICEHIGHTOLOW ? PRICELOWTOHIGHT : PRICEHIGHTOLOW)} filteredProducts={filteredProducts} />
                                         <ProductList products={products} filteredProducts={filteredProducts} />
                                     </div>
+                                </>
+                                :
+                                <div className='aem-Grid aem-Grid--12'>
+                                    <div className='aem-Grid aem-Grid--12 sort-section'>
+                                        <div className='aem-GridColumn aem-GridColumn--default--3'>
+                                            <Breadcrumb links={getBredcrumb(category)} />
+                                        </div>
+                                        <div className='aem-Grid aem-Grid--12 aem-GridColumn aem-GridColumn--default--9'>
+                                            <div className='aem-GridColumn aem-GridColumn--default--6'>
+                                                <b>{filteredProducts.length} Results</b>
+                                            </div>
+                                            <div className='aem-GridColumn aem-GridColumn--default--6 sorting-filter'>
+                                                <Dropdown options={SORT_OPTION} selectedItem={sortBy} setSelectedItem={(value) => sortProducts(value)} />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className='aem-Grid aem-Grid--12'>
+                                        <div className='aem-GridColumn aem-GridColumn--default--3'>
+                                            <FilterDesktop setCategory={setCategory} />
+                                        </div>
+                                        <div className='aem-GridColumn aem-GridColumn--default--9'>
+                                            <ProductList products={products} filteredProducts={filteredProducts} />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        }
-                    </>
-                )}
-            </Media>
+                            }
+                        </>
+                    )}
+                </Media>
+            </section>
         </article>
     )
 }

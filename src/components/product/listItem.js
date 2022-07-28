@@ -21,7 +21,7 @@ const ProductItem = (props) => {
             <div className="card">
                 <NavLink to={`/product/${id}`}>
                     <figure>
-                        <img src={image} alt={title} width={100} />
+                        <img src={image} alt={title} width={200} height={250} />
                     </figure>
                     <div className="title">
                         <b>{title}</b>

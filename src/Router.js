@@ -33,9 +33,7 @@ const Router = () => (
         <Route path="product">
           <Route path="list/:category" element={
             <React.Suspense fallback={<Loader />}>
-              <div className="container">
-                <ProductListPage />
-              </div>
+              <ProductListPage />
             </React.Suspense>
           } />
           <Route path=":id" element={
