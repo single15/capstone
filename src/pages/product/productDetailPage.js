@@ -45,7 +45,7 @@ const ButtonSection = ({ itemId, handleClick, disabled, addItemToWishlist }) => 
 
 const ProductDetailPage = () => {
     const [item, setItem] = useState({});
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState(1);
     const [size, setSize] = useState('');
     const [color, setColor] = useState('');
     const dispatch = useDispatch();

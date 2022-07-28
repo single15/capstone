@@ -3,7 +3,7 @@ import { ReactComponent as MinusIcon } from 'assets/minus.svg'
 import { ReactComponent as PlusIcon } from 'assets/plus.svg'
 import 'components/filter/quantity/quantity.scss';
 
-const Quantity = ({ quantity, updateQuantity, showLabel, small }) => {
+const Quantity = ({ quantity = 1, updateQuantity, showLabel, small }) => {
     
     const onChangeQuantity = (value) => {
         value = Math.round(value);
@@ -15,17 +15,16 @@ const Quantity = ({ quantity, updateQuantity, showLabel, small }) => {
         <div className={`quantity-section ${small ? 'sm' : ''}`}>
             {showLabel && <b>Quantity</b>}
             <div className="count-wrapper">
-                <div className={`icon-wrapper`} onClick={() => quantity > 0 && onChangeQuantity(quantity-1)}>
+                <div className={`icon-wrapper`} onClick={() => quantity > 1 && onChangeQuantity(quantity-1)}>
                     <MinusIcon />
                 </div>
                 <div>
-                    <input type="number" value={quantity} min="1" max="10" onChange={(e) => onChangeQuantity(e.target.value)}/>
+                    <input type="number" value={quantity} onChange={(e) => onChangeQuantity(e.target.value)}/>
                 </div>
                 <div className="icon-wrapper" onClick={() => onChangeQuantity(quantity+1)}>
                     <PlusIcon />
                 </div>
             </div>
-
         </div>
     )
 }

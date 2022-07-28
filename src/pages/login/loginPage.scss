@@ -1,0 +1,16 @@
+.login-page-section {
+    width: 30vw;
+    height: calc(100vh - 384px);
+    margin: auto;
+    position: relative;
+
+    form {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+}

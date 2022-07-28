@@ -10,6 +10,7 @@ const CartPage = React.lazy(() => import("pages/cart/cartPage"));
 const CheckoutPage = React.lazy(() => import("pages/checkout/checkoutPage"));
 const OrderSummary = React.lazy(() => import("pages/order/order"));
 const Whishlist = React.lazy(() => import("pages/whishlist/whishlistPage"));
+const LoginPage = React.lazy(() => import("pages/login/loginPage"));
 
 
 const Router = () => (
@@ -20,6 +21,13 @@ const Router = () => (
         <Route path="capstone" element={
           <React.Suspense fallback={<Loader />}>
             <HomePage />
+          </React.Suspense>
+        } />
+        <Route path="login" element={
+          <React.Suspense fallback={<Loader />}>
+            <div className="container">
+              <LoginPage />
+            </div>
           </React.Suspense>
         } />
         <Route path="product">
@@ -69,6 +77,8 @@ const Router = () => (
             </div>
           </React.Suspense>
         } />
+
+        
       </Routes>
 
 

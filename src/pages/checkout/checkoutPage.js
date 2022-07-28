@@ -102,7 +102,7 @@ const CheckoutPage = () => {
                                         Sign in for Express Checkout
                                     </div>
                                     <div className='aem-GridColumn aem-GridColumn--default--5 aem-GridColumn--tablet--4 aem-GridColumn--phone--6'>
-                                        <Button type="secondary" disabled={true}>SIGN IN</Button>
+                                        <Button type="secondary" onClick={() => navigate('/login')}>SIGN IN</Button>
                                     </div>
                                 </div>
                             </section>

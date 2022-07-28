@@ -94,7 +94,7 @@ const ShippingInfo = (props) => {
                             <BasicInput
                                 label="Email"
                                 type="text"
-                                error={errors.email?.message ? true : false}
+                                error={errors.email?.message}
                                 placeholder="Enter Email"
                                 isRequired={true}
                                 {...register('email', {
@@ -141,7 +141,7 @@ const ShippingInfo = (props) => {
                                             name={field.name}
                                             id={field.id}
                                             isRequired={field.isRequired}
-                                            error={errors[field.name]?.message ? true : false}
+                                            error={errors[field.name]?.message}
                                             options={countries}
                                             {...register(field.name, {
                                                 required: {
@@ -160,7 +160,7 @@ const ShippingInfo = (props) => {
                                             name={field.name}
                                             id={field.id}
                                             isRequired={field.isRequired}
-                                            error={errors[field.name]?.message ? true : false}
+                                            error={errors[field.name]?.message}
                                             options={states}
                                             disabled={states.length === 0}
                                             {...register(field.name, {
@@ -178,7 +178,7 @@ const ShippingInfo = (props) => {
                                             type={field.type}
                                             placeholder={field.placeholder}
                                             isRequired={field.isRequired}
-                                            error={errors[field.name]?.message ? true : false}
+                                            error={errors[field.name]?.message}
                                             {...register(field.name, {
                                                 required: {
                                                     value: field.isRequired,
