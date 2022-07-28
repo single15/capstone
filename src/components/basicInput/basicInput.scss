@@ -34,14 +34,14 @@
         }
 
         &.is-danger {
-            border-color: #EC5B62;
+            border-color: var(--negative-2);;
         }
     }
 
     .is-danger {
-        margin-top: 4px;
-        color: #EC5B62;
-        font-size: 12px;
+        margin-top: var(--unnamed-pixel-4);;
+        color: var(--negative-2);;
+        font-size: var(--unnamed-font-size-12);;
     }
 
     @include desktop {

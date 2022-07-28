@@ -19,6 +19,10 @@
                 justify-content: center;
             }
         }
+
+        .is-danger {
+            color: var(--negative-2);
+        }
     }
 
     @include desktop {

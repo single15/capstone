@@ -21,10 +21,13 @@ import { addToWishList } from "reducer/wishlist";
 import 'pages/product/productDetailPage.scss';
 
 
-const ButtonSection = ({ itemId, handleClick, disabled, addItemToWishlist }) => {
+const ButtonSection = ({ itemId, handleClick, disabled, addItemToWishlist, selectionError }) => {
     const wishListItems = useSelector((store) => store.wishlist.itemsId)
     return (
         <div className="aem-Grid aem-Grid--12 button-section">
+            <div className="aem-GridColumn aem-GridColumn--default--12 is-danger">
+                {selectionError}
+            </div>
             <div className="aem-GridColumn aem-GridColumn--default--7 aem-GridColumn--tablet--12 aem-GridColumn--phone--12">
                 <Button type="primary" onClick={handleClick} disabled={disabled}>Add To Cart</Button>
             </div>
@@ -48,6 +51,7 @@ const ProductDetailPage = () => {
     const [quantity, setQuantity] = useState(1);
     const [size, setSize] = useState('');
     const [color, setColor] = useState('');
+    const [selectionError, setSelectionError]= useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
     let { id } = useParams();
@@ -68,7 +72,7 @@ const ProductDetailPage = () => {
             dispatch(addToCart({ ...item, quantity: quantityCount, size, color }));
             navigate('/cart');
         } else if(CLOTHING_CATEGORIES.includes(item.category)) {
-            alert(`Please select ${(!size && !color) ? 'Size and Color' : !size ? 'Size ' : 'Color'}.`)
+            setSelectionError(`Please select ${(!size && !color) ? 'size and color' : !size ? 'size' : 'color'}`)
         } else {
             dispatch(addToCart({ ...item, quantity: quantityCount, size: '', color: '' }));
             navigate('/cart');
@@ -104,7 +108,7 @@ const ProductDetailPage = () => {
                                         </>
                                     }
                                     <Quantity quantity={quantity} updateQuantity={value => updateQuantity(value)} />
-                                    <ButtonSection itemId={item.id} handleClick={addItemToCart} addItemToWishlist={addItemToWishlist} />
+                                    <ButtonSection itemId={item.id} handleClick={addItemToCart} addItemToWishlist={addItemToWishlist} selectionError={selectionError} />
                                 </>
                                 :
                                 <div className="aem-Grid aem-Grid--12">
@@ -122,7 +126,7 @@ const ProductDetailPage = () => {
                                         }
 
                                         <Quantity quantity={quantity} updateQuantity={value => updateQuantity(value)} />
-                                        <ButtonSection itemId={item.id} handleClick={addItemToCart} addItemToWishlist={addItemToWishlist} />
+                                        <ButtonSection itemId={item.id} handleClick={addItemToCart} addItemToWishlist={addItemToWishlist} selectionError={selectionError} />
                                     </div>
 
                                 </div>
