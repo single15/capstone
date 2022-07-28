@@ -1,10 +1,10 @@
 import React from 'react';
 import BasicInput from 'components/basicInput/basicInput';
 import { useForm } from 'react-hook-form';
-import 'pages/login/loginPage.scss';
 import Button from 'components/button/button';
 import HorizontalBar from 'components/horizontalbar/horizontalbar';
 import { useNavigate } from 'react-router-dom';
+import 'pages/login/loginPage.scss';
 
 const LoginPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({ shouldUnregister: false });

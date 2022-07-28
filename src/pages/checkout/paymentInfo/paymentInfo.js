@@ -4,11 +4,11 @@ import { useForm } from 'react-hook-form';
 import { PAYMENT_TYPES_FIELDS, CREDIT_CARD } from './fields';
 import Radio from 'components/radio/radio';
 import { ReactComponent as EditIcon } from 'assets/edit-blue.svg';
-import 'pages/checkout/paymentInfo/paymentInfo.scss';
 import CreditCardForm from './creaditCardForm';
 import { useDispatch } from 'react-redux';
 import { updatePaymentInfo } from 'reducer/checkout';
 import Media from 'react-media';
+import 'pages/checkout/paymentInfo/paymentInfo.scss';
 
 
 const ReadonlySection = ({ data, toggleEditMode }) => {

@@ -4,10 +4,10 @@ import { useForm } from 'react-hook-form';
 import { SHIPPING_METHOD_FIELDS } from './fields';
 import Radio from 'components/radio/radio';
 import { ReactComponent as EditIcon } from 'assets/edit-blue.svg';
-import 'pages/checkout/shippingMethod/shippingMethod.scss';
 import { updateShippingMethod } from 'reducer/checkout';
 import { useDispatch } from 'react-redux';
 import Media from 'react-media';
+import 'pages/checkout/shippingMethod/shippingMethod.scss';
 
 
 const ReadonlySection = ({ data, toggleEditMode }) => {

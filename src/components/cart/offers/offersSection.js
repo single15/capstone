@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { ReactComponent as ChevronDown } from 'assets/chevron-down.svg'
-import { ReactComponent as ChevronUp } from 'assets/chevron-up.svg'
+import { ReactComponent as ChevronDown } from 'assets/chevron-down.svg';
+import { ReactComponent as ChevronUp } from 'assets/chevron-up.svg';
 import 'components/cart/offers/offersSection.scss';
 
 const LONG_DESC = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam imperdiet mi nunc, quis commodo turpis consectetur et. Nam nec lacus et sapien elementum faucibus. Praesent in odio sit amet orci tempor ultrices quis et mi. Vestibulum sagittis urna in neque mollis, sed vehicula ex varius."

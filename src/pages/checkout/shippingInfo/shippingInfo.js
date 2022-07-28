@@ -8,8 +8,8 @@ import { ReactComponent as EditIcon } from 'assets/edit-blue.svg';
 import { useDispatch } from 'react-redux';
 import { updateShippingInfo } from 'reducer/checkout';
 import BasicSelect from 'components/basicSelect/basicSelect';
-import 'pages/checkout/shippingInfo/shippingInfo.scss';
 import Media from 'react-media';
+import 'pages/checkout/shippingInfo/shippingInfo.scss';
 
 
 const ReadonlySection = ({ data, toggleEditMode }) => (

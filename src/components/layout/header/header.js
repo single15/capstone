@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { ReactComponent as Logo } from 'assets/venia-logo-white.svg'
-import { ReactComponent as Hamburger } from 'assets/hamburger-white.svg'
-import { ReactComponent as ShoppingBag } from 'assets/shopping-bag-white.svg'
-import { ReactComponent as WishlistIcon } from 'assets/white-heart.svg'
+import { ReactComponent as Logo } from 'assets/venia-logo-white.svg';
+import { ReactComponent as Hamburger } from 'assets/hamburger-white.svg';
+import { ReactComponent as ShoppingBag } from 'assets/shopping-bag-white.svg';
+import { ReactComponent as WishlistIcon } from 'assets/white-heart.svg';
 import { ReactComponent as Close } from 'assets/close.svg';
 import Media from 'react-media';
 import { NavLink } from 'react-router-dom';
-import 'components/layout/header/header.scss';
 import { useSelector } from 'react-redux';
+import 'components/layout/header/header.scss';
 
 let activeClassName = "underline";
 

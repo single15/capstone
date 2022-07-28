@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { ReactComponent as ChevronLeftIcon } from 'assets/chevron-left.svg'
-import { ReactComponent as ChevronRightIcon } from 'assets/chevron-right.svg'
+import { ReactComponent as ChevronLeftIcon } from 'assets/chevron-left.svg';
+import { ReactComponent as ChevronRightIcon } from 'assets/chevron-right.svg';
 import { setCurrentPage } from "reducer/product";
 import 'components/pagination/pagination.scss';
 

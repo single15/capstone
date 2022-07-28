@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import 'pages/checkout/orderItems/orderItems.scss';
 import { CLOTHING_CATEGORIES } from 'pages/utils';
+import 'pages/checkout/orderItems/orderItems.scss';
 
 const OrderItems = () => {
     const orderItems = useSelector(store => store.checkout.orderItems);

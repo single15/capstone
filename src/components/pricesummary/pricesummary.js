@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Button from "components/button/button";
 import paypal from 'assets/images/paypal-link.png';
-import { ReactComponent as LockIcon } from 'assets/lock.svg'
-import 'components/pricesummary/pricesummary.scss';
+import { ReactComponent as LockIcon } from 'assets/lock.svg';
 import { useDispatch, useSelector } from "react-redux";
 import { useMatch, useNavigate } from "react-router-dom";
 import { updateOrderItems } from "reducer/checkout";
+import 'components/pricesummary/pricesummary.scss';
 
 const getPrice = (isFree, isDiscount, price) => isFree ? 'FREE' : isDiscount ? `- $ ${price?.toFixed(2)}` : `$ ${price?.toFixed(2)}`;
 

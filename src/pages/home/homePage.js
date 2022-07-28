@@ -8,8 +8,8 @@ import { ReactComponent as MapPinIcon } from 'assets/map-pin.svg';
 import HeroBanner from 'components/herobanner/heroBanner';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
-import 'pages/home/homePage.scss';
 import { useNavigate } from 'react-router-dom';
+import 'pages/home/homePage.scss';
 
 const responsive = {
     superLargeDesktop: {

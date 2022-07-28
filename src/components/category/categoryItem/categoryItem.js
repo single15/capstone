@@ -1,6 +1,6 @@
 import React from 'react';
-import 'components/category/categoryItem/categoryItem.scss';
 import { NavLink } from 'react-router-dom';
+import 'components/category/categoryItem/categoryItem.scss';
 
 const CategoryItem = ({ item }) => {
     return (

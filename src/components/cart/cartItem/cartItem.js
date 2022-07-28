@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import Media from "react-media";
 import Quantity from "components/filter/quantity/quantity";
-import { ReactComponent as WhishlistIcon } from 'assets/heart.svg'
+import { ReactComponent as WhishlistIcon } from 'assets/heart.svg';
 import { ReactComponent as RedWhishlistIcon } from 'assets/red-heart.svg';
-import { ReactComponent as PencilIcon } from 'assets/edit-2.svg'
-import { ReactComponent as TrashIcon } from 'assets/trash-2.svg'
-import { ReactComponent as MoreIcon } from 'assets/more-horizontal.svg'
+import { ReactComponent as PencilIcon } from 'assets/edit-2.svg';
+import { ReactComponent as TrashIcon } from 'assets/trash-2.svg';
+import { ReactComponent as MoreIcon } from 'assets/more-horizontal.svg';
 import { NavLink } from "react-router-dom";
 import { addToCart, removeCart } from "reducer/cart";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWishList } from "reducer/wishlist";
-import 'components/cart/cartItem/cartItem.scss';
 import { CLOTHING_CATEGORIES } from "pages/utils";
+import 'components/cart/cartItem/cartItem.scss';
 
 const SelectedFeature = ({ label, value }) => (
     <div>

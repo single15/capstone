@@ -4,8 +4,8 @@ import FilterBlock from "components/filter/filterBlock";
 import { CATEGORIES_FILTER } from "components/filter/utils";
 import {ReactComponent as Close} from 'assets/close.svg';
 import FilterTag from "components/filter/filterTag"
-import 'components/filter/modal/filterModal.scss';
 import { useParams } from "react-router-dom";
+import 'components/filter/modal/filterModal.scss';
 
 
 const FilterModal = ({ open, closeModal }) => {

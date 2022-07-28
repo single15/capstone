@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink, useMatch } from "react-router-dom";
-import { ReactComponent as WishlistIcon } from 'assets/heart.svg'
-import { ReactComponent as RedWishlistIcon } from 'assets/red-heart.svg'
-import 'components/product/listItem.scss';
+import { ReactComponent as WishlistIcon } from 'assets/heart.svg';
+import { ReactComponent as RedWishlistIcon } from 'assets/red-heart.svg';
 import { useDispatch, useSelector } from "react-redux";
 import { addToWishList } from "reducer/wishlist";
+import 'components/product/listItem.scss';
 
 const ProductItem = (props) => {
     const { id, title, image, price } = props;

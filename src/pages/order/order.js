@@ -7,8 +7,8 @@ import { ReactComponent as Instagram } from 'assets/instagram-white.svg';
 import { ReactComponent as Facebook } from 'assets/facebook-white.svg';
 import { ReactComponent as Twitter } from 'assets/twitter-white.svg';
 import { emptyCart } from 'reducer/cart';
-import 'pages/order/order.scss';
 import { useNavigate } from 'react-router-dom';
+import 'pages/order/order.scss';
 
 const ORDERID = Math.floor((Math.random() * 100000) + 1);
 
