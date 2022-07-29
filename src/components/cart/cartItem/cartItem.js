@@ -19,7 +19,6 @@ const SelectedFeature = ({ label, value }) => (
     </div>
 )
 
-const getPrices = (quantity, price) => price * quantity;
 
 const ActionMenus = ({ id, removeCart, addItemToWishlist }) => {
     const wishListItems = useSelector((store) => store.wishlist.itemsId)
@@ -76,7 +75,7 @@ const CartItem = ({ item }) => {
                                     <SelectedFeature label="Color" value={item.color} />
                                 </>
                             }
-                            <div>$ {getPrices(item.quantity, item.price).toFixed(2)}</div>
+                            <div>$ {item.price.toFixed(2)}</div>
                         </div>
                         <div className="aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--tablet--12 aem-GridColumn--phone--12">
                             <Quantity quantity={item.quantity} showLabel={false} small={true} updateQuantity={(value) => updateQuantity(value)} />

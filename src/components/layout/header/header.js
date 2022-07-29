@@ -86,24 +86,24 @@ const Header = () => {
                                     <div className='aem-GridColumn aem-GridColumn--phone--2 aem-GridColumn--tablet--2' onClick={() => toggleMenu(!showMenu)}>
                                         <Hamburger />
                                     </div>
-                                    <div className='aem-GridColumn aem-GridColumn--phone--8 aem-GridColumn--tablet--8'>
+                                    <div className='aem-GridColumn aem-GridColumn--phone--7 aem-GridColumn--tablet--8'>
                                         <NavLink to="/capstone">
                                             <Logo />
                                         </NavLink>
                                     </div>
                                     <div className='aem-GridColumn aem-GridColumn--phone--1 aem-GridColumn--tablet--1 shopping-bag'>
                                         <NavLink to="/whishlist"><WishlistIcon /></NavLink>
-                                        <div className='shopping-bag-count'>{whishlistItems.length}</div>
+                                        <div className='badge-count'>{whishlistItems.length}</div>
                                     </div>
-                                    <div className='aem-GridColumn aem-GridColumn--phone--1 aem-GridColumn--tablet--1 shopping-bag'>
+                                    <div className='aem-GridColumn aem-GridColumn--phone--2 aem-GridColumn--tablet--1 shopping-bag'>
                                         <NavLink to="/cart"><ShoppingBag /></NavLink>
-                                        <div className='shopping-bag-count'>{cartItems}</div>
+                                        <div className='badge-count'>{cartItems}</div>
                                     </div>                                    
                                     {showMenu &&
-                                        <div className='aem-GridColumn aem-GridColumn--phone--12 aem-GridColumn--tablet--12 menus'>
+                                        <nav className='aem-GridColumn aem-GridColumn--phone--12 aem-GridColumn--tablet--12 menus'>
                                             <Menus toggleMenu={() => toggleMenu(false)} />
                                             <div className='close' onClick={() => toggleMenu(false)}><Close /></div>
-                                        </div>
+                                        </nav>
                                     }
                                 </div>
                             </div>
@@ -116,16 +116,16 @@ const Header = () => {
                                             <Logo />
                                         </NavLink>
                                     </div>
-                                    <div className='aem-GridColumn aem-GridColumn--default--8'>
+                                    <nav className='aem-GridColumn aem-GridColumn--default--8'>
                                         <Menus />
-                                    </div>
+                                    </nav>
                                     <div className='aem-GridColumn aem-GridColumn--default--1 shopping-bag'>
                                         <div><NavLink to="/whishlist"><WishlistIcon /></NavLink></div>
-                                        <div className='shopping-bag-count'>{whishlistItems.length}</div>
+                                        <div className='badge-count'>{whishlistItems.length}</div>
                                     </div>
                                     <div className='aem-GridColumn aem-GridColumn--default--1 shopping-bag'>
                                         <div><NavLink to="/cart"><ShoppingBag /></NavLink></div>
-                                        <div className='shopping-bag-count'>{cartItems}</div>
+                                        <div className='badge-count'>{cartItems}</div>
                                     </div>
                                 </div>
                             </div>

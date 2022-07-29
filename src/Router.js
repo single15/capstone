@@ -33,46 +33,48 @@ const Router = () => (
         <Route path="product">
           <Route path="list/:category" element={
             <React.Suspense fallback={<Loader />}>
-              <ProductListPage />
+              <main>
+                <ProductListPage />
+              </main>
             </React.Suspense>
           } />
           <Route path=":id" element={
             <React.Suspense fallback={<Loader />}>
-              <div className="container">
+              <main className="container">
                 <ProductDetailPage />
-              </div>
+              </main>
             </React.Suspense>
           } />
         </Route>
         <Route path="cart" element={
           <React.Suspense fallback={<Loader />}>
-            <div className="container">
+            <main className="container">
               <CartPage />
-            </div>
+            </main>
           </React.Suspense>
         } />
 
         <Route path="checkout" element={
           <React.Suspense fallback={<Loader />}>
-            <div className="container">
+            <main className="container">
               <CheckoutPage />
-            </div>
+            </main>
           </React.Suspense>
         } />
 
         <Route path="ordersummary" element={
           <React.Suspense fallback={<Loader />}>
-            <div className="container">
+            <main className="container">
               <OrderSummary />
-            </div>
+            </main>
           </React.Suspense>
         } />
 
         <Route path="whishlist" element={
           <React.Suspense fallback={<Loader />}>
-            <div className="container">
+            <main className="container">
               <Whishlist />
-            </div>
+            </main>
           </React.Suspense>
         } />
 
